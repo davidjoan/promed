@@ -21,7 +21,7 @@ class DepartmentSeeder extends Seeder
 
         $geo = Geo::getCountry('PE');
 
-        $ruta = storage_path('app').'\public\geojson\peru_departamental_simple.geojson';
+        $ruta = storage_path('app/public/geojson/peru_departamental_simple.geojson');
         $myfile = file_get_contents($ruta);
         $dptos = json_decode($myfile, true);
         foreach($dptos['features'] as $key => $dpto) {

@@ -16,6 +16,6 @@ class RegionTableSeeder extends Seeder
     public function run()
     {
         DB::table('regions')->delete();
-        Excel::import(new RegionImport, storage_path('app').'/public/region.csv');
+        Excel::import(new RegionImport, storage_path('app/public/region.csv'));
     }
 }

@@ -8,9 +8,6 @@ use App\Models\District;
 use App\Models\Geo;
 use App\Models\Province;
 use Illuminate\Support\Facades\DB;
-use Grimzy\LaravelMysqlSpatial\Types\Point;
-use Grimzy\LaravelMysqlSpatial\Types\Polygon;
-use Grimzy\LaravelMysqlSpatial\Types\LineString;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
@@ -26,7 +23,7 @@ class DistrictSeeder extends Seeder
         DB::disableQueryLog();
         DB::table('districts')->delete();
         $geo = Geo::getCountry('PE');
-        $ruta = storage_path('app').'\public\geojson\peru_distrital_simple.geojson';
+        $ruta = storage_path('app/public/geojson/peru_distrital_simple.geojson');
         $myfile = file_get_contents($ruta);
         $provincias = json_decode($myfile, true);
         foreach($provincias['features'] as $key => $district) {

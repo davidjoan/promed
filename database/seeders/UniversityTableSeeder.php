@@ -18,6 +18,6 @@ class UniversityTableSeeder extends Seeder
     {
         DB::disableQueryLog();
         DB::table('universities')->delete();
-        Excel::import(new UniversityImport, storage_path('app').'/public/universities.csv');
+        Excel::import(new UniversityImport, storage_path('app/public/universities.csv'));
     }
 }

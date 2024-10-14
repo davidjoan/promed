@@ -17,6 +17,6 @@ class TargetTableSeeder extends Seeder
     public function run()
     {
         DB::table('targets')->delete();
-        Excel::import(new TargetImport, storage_path('app').'/public/targets.csv');
+        Excel::import(new TargetImport, storage_path('app/public/targets.csv'));
     }
 }

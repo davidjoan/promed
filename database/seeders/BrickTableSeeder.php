@@ -16,6 +16,6 @@ class BrickTableSeeder extends Seeder
     public function run()
     {
         DB::table('bricks')->delete();
-        Excel::import(new BrickImport, storage_path('app').'/public/bricks.csv');
+        Excel::import(new BrickImport, storage_path('app/public/bricks.csv'));
     }
 }

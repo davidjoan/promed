@@ -23,7 +23,7 @@ class ProvinceSeeder extends Seeder
     public function run()
     {
         $geo = Geo::getCountry('PE');
-        $ruta = storage_path('app').'\public\geojson\peru_provincial_simple.geojson';
+        $ruta = storage_path('app/public/geojson/peru_provincial_simple.geojson');
         $myfile = file_get_contents($ruta);
         $provincias = json_decode($myfile, true);
         foreach($provincias['features'] as $key => $provincia) {

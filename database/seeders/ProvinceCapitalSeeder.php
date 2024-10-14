@@ -21,7 +21,7 @@ class ProvinceCapitalSeeder extends Seeder
         DB::disableQueryLog();
         DB::table('province_capitals')->delete();
         $geo = Geo::getCountry('PE');
-        $ruta = storage_path('app').'\public\geojson\peru_capital_provincia.geojson';
+        $ruta = storage_path('app/public/geojson/peru_capital_provincia.geojson');
         $myfile = file_get_contents($ruta);
         $provincias = json_decode($myfile, true);
         foreach($provincias['features'] as $district) {

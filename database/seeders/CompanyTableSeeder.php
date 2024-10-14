@@ -16,6 +16,6 @@ class CompanyTableSeeder extends Seeder
     public function run()
     {
         DB::table('companies')->delete();
-        Excel::import(new CompanyImport, storage_path('app').'/public/company.csv');
+        Excel::import(new CompanyImport, storage_path('app/public/company.csv'));
     }
 }

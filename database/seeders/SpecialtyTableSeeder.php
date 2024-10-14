@@ -25,6 +25,6 @@ class SpecialtyTableSeeder extends Seeder
 
         Specialty::create(array('company_id' => $company->id,'geo_id' => $geo->id,'code' => 'PD', 'name' => 'Por Definir','description' => ''));
 
-        Excel::import(new SpecialtyImport, storage_path('app').'/public/specialty.csv');
+        Excel::import(new SpecialtyImport, storage_path('app/public/specialty.csv'));
     }
 }

@@ -16,6 +16,6 @@ class HobbyTableSeeder extends Seeder
     public function run()
     {
         DB::table('hobbies')->delete();
-        Excel::import(new HobbyImport, storage_path('app').'/public/hobbies.csv');
+        Excel::import(new HobbyImport, storage_path('app/public/hobbies.csv'));
     }
 }

@@ -16,6 +16,6 @@ class ClientTableSeeder extends Seeder
     public function run()
     {
         DB::table('clients')->delete();
-        Excel::import(new ClientImport, storage_path('app').'/public/clients.csv');
+        Excel::import(new ClientImport, storage_path('app/public/clients.csv'));
     }
 }

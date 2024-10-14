@@ -32,7 +32,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ClientTypeTableSeeder::class);
         $this->call(InstitutionTypeTableSeeder::class);
         $this->call(InstitutionTableSeeder::class);
-       // $this->call(PeruGeoJsonSeeder::class);
         $this->call(TuitionTableSeeder::class);
         $this->call(UniversityTableSeeder::class);
         $this->call(ClientTableSeeder::class);
