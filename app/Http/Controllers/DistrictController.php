@@ -6,6 +6,7 @@ use App\Filters\DistrictFilters;
 use App\Http\Resources\District as DistrictResource;
 use App\Models\District;
 use Illuminate\Http\Request;
+use TarfinLabs\LaravelSpatial\Types\Point;
 
 class DistrictController extends Controller
 {
@@ -25,7 +26,8 @@ class DistrictController extends Controller
      */
     public function store(Request $request)
     {
-        $district = District::create($request->all());
+        $district = District::create(array_merge($request->all(), 
+        (request('lat'))?['location'  => new Point(lat: request('lat'), lng: request('lng')),]:[]));
         return response()->json($district, 201);
     }
 
@@ -43,7 +45,8 @@ class DistrictController extends Controller
     public function update(Request $request, string $id)
     {
         $district = District::find($id);
-        $district->update($request->all());
+        $district->update(array_merge($request->all(), 
+        (request('lat'))?['location'  => new Point(lat: request('lat'), lng: request('lng')),]:[]));
         return response()->json($district, 200);
     }
 

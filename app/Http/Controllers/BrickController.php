@@ -6,6 +6,7 @@ use App\Filters\BrickFilters;
 use Illuminate\Http\Request;
 use App\Http\Resources\Brick as BrickResource;
 use App\Models\Brick;
+use TarfinLabs\LaravelSpatial\Types\Point;
 
 class BrickController extends Controller
 {
@@ -25,7 +26,8 @@ class BrickController extends Controller
      */
     public function store(Request $request)
     {
-        $brick = Brick::create($request->all());
+        $brick = Brick::create(array_merge($request->all(), 
+        (request('lat'))?['location'  => new Point(lat: request('lat'), lng: request('lng')),]:[]));
         return response()->json($brick, 201);
     }
 
@@ -43,7 +45,8 @@ class BrickController extends Controller
     public function update(Request $request, string $id)
     {
         $brick = Brick::find($id);
-        $brick->update($request->all());
+        $brick->update(array_merge($request->all(), 
+        (request('lat'))?['location'  => new Point(lat: request('lat'), lng: request('lng')),]:[]));
         return response()->json($brick, 200);
     }
 

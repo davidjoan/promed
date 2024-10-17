@@ -28,7 +28,6 @@ class ClientController extends Controller
         if($hobbies){
             $client->hobbies()->attach($hobbies);
         }
-
         $specialties = json_decode(request('specialties'));
         if($specialties){
             $client->specialties()->attach($specialties);
@@ -52,12 +51,10 @@ class ClientController extends Controller
         $client = Client::find($id);
         $client->update($request->all());
         $request->user()->addPoints(5);
-
         $hobbies = json_decode(request('hobbies'));
         if($hobbies){
             $client->hobbies()->sync($hobbies);
         }
-
         $specialties = json_decode(request('specialties'));
         if($specialties){
             $client->specialties()->sync($specialties);

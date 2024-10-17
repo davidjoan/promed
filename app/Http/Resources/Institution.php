@@ -26,8 +26,7 @@ class Institution extends JsonResource
             'description' => $this->description,
             'address' => $this->address,
             'reference' => $this->reference,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
+            'location' => ($this->location)?$this->location->toArray():null,
             'active' => $this->active
         ];
     }

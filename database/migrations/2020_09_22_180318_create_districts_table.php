@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateDistrictsTable extends Migration
@@ -36,6 +37,13 @@ class CreateDistrictsTable extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
+        });
+
+        Schema::table('districts', function (Blueprint $table) {
+            DB::statement("UPDATE `districts` SET `location` = ST_GeomFromText('POINT(0 0)', 4326);");
+            DB::statement("ALTER TABLE `districts` CHANGE `location` `location` POINT NOT NULL;");
+
+            $table->spatialIndex('location');
         });
     }
 

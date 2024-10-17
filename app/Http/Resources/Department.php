@@ -18,7 +18,6 @@ class Department extends JsonResource
             'id' => $this->id,
             'code' => $this->code, 
             'name' => $this->name,
-            //'area' => $this->area->toJson(),
             'active' => $this->active];
     }
 }

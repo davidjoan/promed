@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateInstitutionsTable extends Migration
@@ -26,8 +27,6 @@ class CreateInstitutionsTable extends Migration
             $table->text('description')->nullable();
             $table->text('address')->nullable();
             $table->text('reference')->nullable();
-            $table->decimal('latitude',10,8)->nullable();
-            $table->decimal('longitude',10,8)->nullable();
             $table->geography('location', 'point')->nullable();
 
             $table->bigInteger('osm_id')->nullable();
@@ -51,6 +50,14 @@ class CreateInstitutionsTable extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
+        });
+
+        
+        Schema::table('institutions', function (Blueprint $table) {
+            DB::statement("UPDATE `institutions` SET `location` = ST_GeomFromText('POINT(0 0)', 4326);");
+            DB::statement("ALTER TABLE `institutions` CHANGE `location` `location` POINT NOT NULL;");
+
+            $table->spatialIndex('location');
         });
     }
 

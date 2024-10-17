@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateProvincesTable extends Migration
@@ -32,6 +33,13 @@ class CreateProvincesTable extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
+        });
+
+        Schema::table('provinces', function (Blueprint $table) {
+            DB::statement("UPDATE `provinces` SET `location` = ST_GeomFromText('POINT(0 0)', 4326);");
+            DB::statement("ALTER TABLE `provinces` CHANGE `location` `location` POINT NOT NULL;");
+
+            $table->spatialIndex('location');
         });
     }
 

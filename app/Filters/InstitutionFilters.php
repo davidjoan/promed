@@ -3,6 +3,7 @@
 namespace App\Filters;
 
 use Illuminate\Http\Request;
+use TarfinLabs\LaravelSpatial\Types\Point;
 
 class InstitutionFilters extends QueryFilters
 {
@@ -12,6 +13,12 @@ class InstitutionFilters extends QueryFilters
     {
         $this->request = $request;
         parent::__construct($request);
+    }
+
+    public function near($term = '')
+    {
+        $params=explode(',',$term);
+        return $this->builder->withinDistanceTo('location', new Point(lat: $params[0], lng: $params[1]), $params[2]);
     }
 
     public function terms($term = '')

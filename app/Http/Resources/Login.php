@@ -16,7 +16,7 @@ class Login extends JsonResource
     {
         return ['id' => $this->id, 
         'name' => $this->name, 
-        'email' => $this->email, 
+        'email' => $this->email,
         'organizations' => Organization::collection($this->organizations),];
     }
 }

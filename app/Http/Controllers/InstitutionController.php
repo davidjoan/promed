@@ -6,6 +6,7 @@ use App\Filters\InstitutionFilters;
 use App\Http\Resources\Institution as InstitutionResource;
 use App\Models\Institution;
 use Illuminate\Http\Request;
+use TarfinLabs\LaravelSpatial\Types\Point;
 
 class InstitutionController extends Controller
 {
@@ -25,7 +26,8 @@ class InstitutionController extends Controller
      */
     public function store(Request $request)
     {
-        $institution = Institution::create($request->all());
+        $institution = Institution::create(array_merge($request->all(), 
+        (request('lat'))?['location'  => new Point(lat: request('lat'), lng: request('lng')),]:[]));
         $request->user()->addPoints(10);
         return response()->json($institution, 201);
     }
@@ -47,7 +49,8 @@ class InstitutionController extends Controller
     public function update(Request $request, string $id)
     {
         $institution = Institution::find($id);
-        $institution->update($request->all());
+        $institution->update(array_merge($request->all(), 
+        (request('lat'))?['location'  => new Point(lat: request('lat'), lng: request('lng')),]:[]));
         $request->user()->addPoints(5);
         return response()->json($institution, 200);
     }

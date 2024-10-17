@@ -37,6 +37,8 @@ class Client extends JsonResource
         'description' => $this->description,
         'active' => $this->active,
         'created_at' => $this->created_at,
-        'updated_at' => $this->updated_at];
+        'updated_at' => $this->updated_at,
+        'specialties' => Specialty::collection($this->specialties),
+        'hobbies' => Hobby::collection($this->hobbies),];
     }
 }

@@ -19,7 +19,7 @@ class District extends JsonResource
             'province' => Province::make($this->province_model),
             'code' => $this->code, 
             'name' => $this->name,
-            'area' => $this->area,
+            'location' => ($this->location)?$this->location->toArray():null,
             'active' => $this->active];
     }
 }

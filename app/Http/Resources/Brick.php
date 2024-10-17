@@ -16,12 +16,11 @@ class Brick extends JsonResource
     {
         return [
             'id' => $this->id,
-            'geo' => Geo::make($this->geo),
-            'region' => Region::make($this->region),
             'district' => District::make($this->district),
             'code' => $this->code, 
             'name' => $this->name, 
             'description' => $this->description,
+            'location' => ($this->location)?$this->location->toArray():null,
             'active' => $this->active];
     }
 }

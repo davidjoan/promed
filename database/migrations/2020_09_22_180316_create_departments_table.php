@@ -3,6 +3,7 @@
 use TarfinLabs\LaravelSpatial\Migrations\SpatialMigration;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateDepartmentsTable extends Migration
@@ -26,6 +27,13 @@ class CreateDepartmentsTable extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
+        });
+
+        Schema::table('departments', function (Blueprint $table) {
+            DB::statement("UPDATE `departments` SET `location` = ST_GeomFromText('POINT(0 0)', 4326);");
+            DB::statement("ALTER TABLE `departments` CHANGE `location` `location` POINT NOT NULL;");
+
+            $table->spatialIndex('location');
         });
     }
 

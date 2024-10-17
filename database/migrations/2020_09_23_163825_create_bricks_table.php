@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateBricksTable extends Migration
 {
@@ -26,6 +27,13 @@ class CreateBricksTable extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
+        });
+
+        Schema::table('bricks', function (Blueprint $table) {
+            DB::statement("UPDATE `bricks` SET `location` = ST_GeomFromText('POINT(0 0)', 4326);");
+            DB::statement("ALTER TABLE `bricks` CHANGE `location` `location` POINT NOT NULL;");
+
+            $table->spatialIndex('location');
         });
     }
 
