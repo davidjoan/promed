@@ -2,19 +2,20 @@
 namespace App\Models;
 
 use App\Models\Geo;
-use App\Models\Company;
+
 use Yajra\Auditable\AuditableTrait;
 use Illuminate\Database\Eloquent\Model;
+use App\Filters\Filterable;
 
 class OrganizationType extends Model
 {
-	use AuditableTrait;
+	use AuditableTrait, Filterable;
 	/**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['company_id','code', 'name', 'description','active'];  
+    protected $fillable = ['code', 'name', 'description','active'];  
 	
 	protected $dateFormat = 'Y-m-d H:i:s';
 
@@ -22,11 +23,5 @@ class OrganizationType extends Model
     public function geo()
     {
         return $this->belongsTo(Geo::class);
-    }
-
-    public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
-           
+    }      
 }

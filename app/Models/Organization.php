@@ -4,7 +4,7 @@ namespace App\Models;
 use App\Models\Geo;
 use App\Models\User;
 use App\Models\Brick;
-use App\Models\Company;
+
 use App\Models\Specialty;
 use App\Models\OrganizationType;
 
@@ -22,7 +22,7 @@ class Organization extends Model
      *
      * @var array
      */
-    protected $fillable = ['id','company_id','user_id','geo_id','organization_type_id','code', 'name', 'description','active','parent_id'];  
+    protected $fillable = ['id','user_id','geo_id','organization_type_id','code', 'name', 'description','active','parent_id'];  
 
 	protected $dateFormat = 'Y-m-d H:i:s';
 	
@@ -41,11 +41,6 @@ class Organization extends Model
         return $this->belongsToMany(Region::class);
     }
 
-    public function geos()
-    {
-        return $this->belongsToMany(Geo::class);
-    }
-
     public function organization_type()
     {
         return $this->belongsTo(OrganizationType::class);
@@ -59,15 +54,5 @@ class Organization extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    
-    public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class);
     }
 }

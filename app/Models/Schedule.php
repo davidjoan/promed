@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Geo;
 use App\Models\Target;
-use App\Models\Company;
+
 use App\Filters\Filterable;
 use Yajra\Auditable\AuditableTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -20,14 +20,9 @@ class Schedule extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_id','geo_id','target_id', 'day', 'start_time','finish_time', 'description','active'];
+    protected $fillable = ['geo_id','target_id', 'day', 'start_time','finish_time', 'description','active'];
 	
 	protected $dateFormat = 'Y-m-d H:i:s';
-
-	public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
 
     public function geo()
     {

@@ -3,7 +3,6 @@ namespace App\Imports;
 
 use App\Models\Geo;
 use App\Models\Client;
-use App\Models\Company;
 use App\Models\Specialty;
 use App\Models\ClientType;
 use App\Models\University;
@@ -21,8 +20,6 @@ class ClientImport implements ToModel
     */
     public function model(array $row)
     {
-
-        $company     = Company::where('name', 'App1t')->first();
         $geo         = Geo::getCountry('PE');
         $specialty   = Specialty::where('name', $row[2])->first();
         $client_type = ClientType::where('code', 'DO')->first();
@@ -38,7 +35,6 @@ class ClientImport implements ToModel
         usort($dates, array('App\Imports\ClientImport','compareByTimeStamp'));
      
         $client = Client::create(array(
-            'company_id' => $company->id,
             'geo_id' => $geo->id,
             'nationality_id' => $geo->id,
             'specialty_id' => $specialty->id,

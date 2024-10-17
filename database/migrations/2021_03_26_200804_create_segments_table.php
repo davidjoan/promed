@@ -15,7 +15,6 @@ class CreateSegmentsTable extends Migration
     {
         Schema::create('segments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->index()->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('geo_id')->index()->references('id')->on('geo')->onDelete('cascade');
 			$table->string('code',10)->nullable();
             $table->string('name',100);

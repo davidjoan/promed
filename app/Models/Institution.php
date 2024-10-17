@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Geo;
 use App\Models\Brick;
-use App\Models\Company;
+
 use App\Models\InstitutionType;
 use Yajra\Auditable\AuditableTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -25,18 +25,13 @@ class Institution extends Model
      * 
      * @var array
      */
-    protected $fillable = ['company_id','geo_id','institution_type_id','brick_id','district_id','specialty_id', 'code','ruc', 'name', 'description','address','reference','latitude','longitude','position','location','active'];
+    protected $fillable = ['geo_id','institution_type_id','brick_id','district_id','specialty_id', 'code','ruc', 'name', 'description','address','reference','latitude','longitude','position','location','active'];
 
 	protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $casts = [
         'location' => LocationCast::class
     ];
-
-	public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
 
     public function specialty()
     {

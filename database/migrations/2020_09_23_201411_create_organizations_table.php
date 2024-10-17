@@ -16,7 +16,6 @@ class CreateOrganizationsTable extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->nullable()->unsigned();
-            $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
 			$table->foreignId('geo_id')->references('id')->on('geo')->onDelete('cascade');
 	        $table->foreignId('organization_type_id')->references('id')->on('organization_types')->onDelete('cascade');
 			$table->string('code', 20)->nullable();
@@ -28,7 +27,6 @@ class CreateOrganizationsTable extends Migration
 			$table->softDeletesTz();
             $table->nestedSet();
             $table->auditable();
-
             $table->index('user_id')->nullable();
             $table->foreign('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
         });

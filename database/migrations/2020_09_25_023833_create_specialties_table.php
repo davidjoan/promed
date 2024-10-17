@@ -15,7 +15,6 @@ class CreateSpecialtiesTable extends Migration
     {
         Schema::create('specialties', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('company_id')->unsigned()->nullable();
             $table->bigInteger('geo_id')->unsigned()->nullable();
 			$table->string('code',10)->nullable();
             $table->string('name',100);
@@ -25,7 +24,6 @@ class CreateSpecialtiesTable extends Migration
             $table->softDeletesTz();
             $table->auditable();
             
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreign('geo_id')->references('id')->on('geo');
         });
     }

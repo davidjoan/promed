@@ -2,7 +2,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Company;
+
 use App\Models\Geo;
 use App\Models\Institution;
 use App\Models\InstitutionType;
@@ -20,7 +20,6 @@ class PeruGeoJsonSeeder extends Seeder
      */
     public function run()
     {
-        $company = Company::where('name','App1t')->first();
 		$country = Geo::getCountry('PE');
         $peru    = Institution::where('name','Perú')->first();
         $faker   = \Faker\Factory::create();
@@ -44,7 +43,7 @@ class PeruGeoJsonSeeder extends Seeder
                     break;
             }
 
-            $institution = Institution::create(['company_id' => $company->id,
+            $institution = Institution::create([
             'geo_id' => $country->id,
             'institution_type_id' => $institution_type->id,
             'brick_id' => null,

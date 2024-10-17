@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use LevelUp\Experience\Concerns\GiveExperience;
 
 class User extends Authenticatable
 {
@@ -16,6 +17,7 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
     use HasRoles;
+    use GiveExperience;
 
     /**
      * The attributes that are mass assignable.
@@ -45,19 +47,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /*public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }*/
-
     public function organizations()
     {
-        return $this->belongsToMany(Organization::class);
-    }
-
-    public function company()
-    {
-        return $this->belongsTo(Company::class);
+        return $this->hasMany(Organization::class);
     }
 
     public function geo()

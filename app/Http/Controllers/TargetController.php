@@ -23,6 +23,7 @@ class TargetController extends Controller
     public function store(Request $request)
     {
         $target = Target::create($request->all());
+        $request->user()->addPoints(12);
         return response()->json($target, 201);
     }
 
@@ -41,6 +42,7 @@ class TargetController extends Controller
     {
         $target = Target::find($id);
         $target->update($request->all());
+        $request->user()->addPoints(6);
         return response()->json($target, 200);
     }
 

@@ -1,18 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Campaign as ResourcesCampaign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Resources\Login;
-use App\Models\Agora\RtcTokenBuilder;
-use App\Models\Agora\RtmTokenBuilder;
-use Illuminate\Support\Facades\Hash;
-use App\Models\Campaign;
 use App\Models\User;
-use DateTime;
-use DateTimeZone;
 
 class AuthController extends Controller
 {
@@ -25,7 +18,7 @@ class AuthController extends Controller
     {
 		if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
 			$success['user']  =  Login::make($request->user()); 
-            $success['token'] =  $request->user()->createToken('App1t')->plainTextToken; 
+            $success['token'] =  $request->user()->createToken('Promed')->plainTextToken; 
 			return $this->sendResponse($success, 'Login successfully.');
 		} else{ 
 			return $this->sendError('Login Error.', ['error'=>'Unauthorized'], 401);

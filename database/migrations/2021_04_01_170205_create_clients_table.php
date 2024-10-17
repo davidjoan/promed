@@ -15,7 +15,6 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->index()->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('geo_id')->index()->references('id')->on('geo')->onDelete('cascade');
             $table->foreignId('client_type_id')->index()->references('id')->on('client_types')->onDelete('cascade');
             $table->foreignId('tuition_id')->index()->references('id')->on('tuitions')->onDelete('cascade'); //colegiatura

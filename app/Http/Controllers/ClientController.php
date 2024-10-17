@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ClientFilters;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Http\Resources\Client as ClientResource;
@@ -11,9 +12,9 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(ClientFilters $request)
     {
-        return ClientResource::collection(Client::all());
+        return ClientResource::collection(Client::filter($request)->get());
     }
 
     /**
@@ -22,6 +23,16 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $client = Client::create($request->all());
+        $request->user()->addPoints(10);
+        $hobbies = json_decode(request('hobbies'));
+        if($hobbies){
+            $client->hobbies()->attach($hobbies);
+        }
+
+        $specialties = json_decode(request('specialties'));
+        if($specialties){
+            $client->specialties()->attach($specialties);
+        }
         return response()->json($client, 201);
     }
 
@@ -40,6 +51,17 @@ class ClientController extends Controller
     {
         $client = Client::find($id);
         $client->update($request->all());
+        $request->user()->addPoints(5);
+
+        $hobbies = json_decode(request('hobbies'));
+        if($hobbies){
+            $client->hobbies()->sync($hobbies);
+        }
+
+        $specialties = json_decode(request('specialties'));
+        if($specialties){
+            $client->specialties()->sync($specialties);
+        }
         return response()->json($client, 200);
     }
 

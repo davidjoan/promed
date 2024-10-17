@@ -17,15 +17,12 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinceSeeder::class);
         $this->call(DistrictSeeder::class);
         $this->call(ProvinceCapitalSeeder::class);
-        $this->call(CorporationTableSeeder::class);
-        $this->call(CompanyTableSeeder::class);
         $this->call(RegionTableSeeder::class);
         $this->call(BrickTableSeeder::class);
         $this->call(OrganizationTypeTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(SpecialtyTableSeeder::class);
         $this->call(OrganizationTableSeeder::class);
-        $this->call(CampaignTableSeeder::class);
         $this->call(HobbyTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         $this->call(SegmentTableSeeder::class);
@@ -39,5 +36,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TargetTableSeeder::class);
         $this->call(AssignmentTableSeeder::class);
         $this->call(ScheduleTableSeeder::class);
+        $this->call(LevelTableSeeder::class);
     }
 }

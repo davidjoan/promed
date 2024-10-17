@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\HobbyFilters;
+use App\Http\Resources\Hobby as HobbyResource;
+use App\Models\Hobby;
 use Illuminate\Http\Request;
-use App\Http\Resources\Company as CompanyResource;
-use App\Models\Company;
 
-class CompanyController extends Controller
+class HobbyController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @param  App\Filters\HobbyFilters  $request
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(HobbyFilters $request)
     {
-        return CompanyResource::collection(Company::all());
+        return HobbyResource::collection(Hobby::filter($request)->get());
     }
 
     /**
@@ -21,8 +25,8 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $company = Company::create($request->all());
-        return response()->json($company, 201);
+        $hobby = Hobby::create($request->all());
+        return response()->json($hobby, 201);
     }
 
     /**
@@ -30,7 +34,7 @@ class CompanyController extends Controller
      */
     public function show(string $id)
     {
-        return new CompanyResource(Company::find($id));
+        return new HobbyResource(Hobby::find($id));
     }
 
     /**
@@ -38,9 +42,9 @@ class CompanyController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $company = Company::find($id);
-        $company->update($request->all());
-        return response()->json($company, 200);
+        $hobby = Hobby::find($id);
+        $hobby->update($request->all());
+        return response()->json($hobby, 200);
     }
 
     /**
@@ -48,7 +52,7 @@ class CompanyController extends Controller
      */
     public function destroy(string $id)
     {
-        Company::destroy($id);
+        Hobby::destroy($id);
         return response()->json(null, 204);
     }
 }

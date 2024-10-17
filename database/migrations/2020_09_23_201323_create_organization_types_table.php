@@ -15,7 +15,6 @@ class CreateOrganizationTypesTable extends Migration
     {
         Schema::create('organization_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('geo_id')->references('id')->on('geo');
 			$table->string('code',10)->nullable();
             $table->string('name',100);

@@ -15,8 +15,8 @@ class CreateRegionsTable extends Migration
     {
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
-            $table->foreignId('geo_id')->references('id')->on('geo');			$table->string('code',10)->nullable();
+            $table->foreignId('geo_id')->references('id')->on('geo');			
+            $table->string('code',10)->nullable();
             $table->string('name',100);
             $table->text('description')->nullable();
             $table->boolean('active')->default(true);
@@ -36,9 +36,6 @@ class CreateRegionsTable extends Migration
      */
     public function down()
     {
-		Schema::table('regions', function (Blueprint $table) {
-			$table->dropForeign(['company_id']);
-		});
         Schema::dropIfExists('regions');
     }
 }

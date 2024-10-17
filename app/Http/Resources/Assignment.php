@@ -15,11 +15,7 @@ class Assignment extends JsonResource
     public function toArray($request)
     {
         return  [
-//      'company' =>  Company::make($this->company),
-//      'geo'     => Geo::make($this->geo),
-//      'organization' => Organization::make($this->organization->get()->toTree()),
         'id' => $this->id,
-        'company_id' =>  $this->company_id,
         'geo_id'     => $this->geo_id,
         'target' => Target::make($this->target),
         'category' => Category::make($this->category),

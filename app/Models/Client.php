@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Geo;
-use App\Models\Company;
+
 use App\Models\Tuition;
 use App\Models\Specialty;
 use App\Models\ClientType;
@@ -12,12 +12,11 @@ use Yajra\Auditable\AuditableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use App\Filters\Filterable;
 
 class Client extends Model
 {
-    use SoftDeletes;
-    use AuditableTrait;
-    use Notifiable;
+    use SoftDeletes, AuditableTrait, Notifiable, Filterable;
 
 	/**
      * The attributes that are mass assignable.
@@ -25,7 +24,7 @@ class Client extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_id','geo_id','client_type_id','tuition_id','nationality_id',
+    protected $fillable = ['geo_id','client_type_id','tuition_id','nationality_id',
     'specialty_id','university_id', 'code','name', 'firstname','lastname','photo','national_identity',
     'email','password','phone','mobile','date_of_birth','date_of_graduation','date_of_aniversary','gender',
     'marital_status', 'description','is_alive','active','created_at','updated_at','deleted_at'];
@@ -42,11 +41,6 @@ class Client extends Model
         'date_of_graduation' => 'date',
         'date_of_aniversary' => 'date',
     ];
-
-	public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
 
     public function geo()
     {
@@ -72,6 +66,7 @@ class Client extends Model
     {
         return $this->belongsTo(Specialty::class);
     }
+
 
     public function university()
     {

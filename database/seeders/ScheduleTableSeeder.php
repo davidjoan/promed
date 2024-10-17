@@ -6,7 +6,7 @@ use App\Models\Geo;
 use App\Models\User;
 use App\Models\Target;
 use App\Models\Schedule;
-use App\Models\Company;
+
 
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -20,7 +20,6 @@ class ScheduleTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::disableQueryLog();
         DB::table('schedules')->delete();
 
         $targets = Target::all();
@@ -32,7 +31,7 @@ class ScheduleTableSeeder extends Seeder
 
                 $time = $this->getStartTime();
 
-                Schedule::create(array('company_id' => $target->company_id,'geo_id' => $target->geo_id,
+                Schedule::create(array('geo_id' => $target->geo_id,
                 'target_id' => $target->id,
                 'day' => $day,
                 'start_time' => $time,

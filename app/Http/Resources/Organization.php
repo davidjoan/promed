@@ -16,10 +16,12 @@ class Organization extends JsonResource
     {
         return [
             'id' => $this->id,
+            'geo' => Geo::make($this->geo),
             'organization_type' => OrganizationType::make($this->organization_type),
             'code' => $this->code,
             'name' => $this->name,
             'description' => $this->description,
+            'selected' => $this->selected,
             'active' => $this->active];
     }
 }

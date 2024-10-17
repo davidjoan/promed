@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Geo;
 use App\Models\Client;
-use App\Models\Company;
+
 use App\Models\Institution;
 use App\Models\Specialty;
 use App\Models\JobPosition;
@@ -21,16 +21,11 @@ class Target extends Model
      * 
      * @var array
      */
-    protected $fillable = ['company_id','geo_id','client_id','institution_id','job_position_id','specialty_id',
+    protected $fillable = ['geo_id','client_id','institution_id','job_position_id','specialty_id',
     'qty_patiences','avg_price_inquiry','social_level_patients','attends_child','attends_teen',
-    'attends_adult', 'attends_old:','attends_online', 'attends_face_to_face', 'active'];
+    'attends_adult', 'attends_old','attends_online', 'attends_face_to_face', 'active'];
 	
 	protected $dateFormat = 'Y-m-d H:i:s';
-
-	public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
 
     public function geo()
     {
@@ -76,5 +71,25 @@ class Target extends Model
     {
         $fullname = $this->client->name.' ('.$this->institution->id.')';
         return $fullname;
+    }
+
+        /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function likes()
+    {
+        return $this->hasMany(Assignment::class)->where('score', 1);
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function dislikes()
+    {
+        return $this->hasMany(Assignment::class)->where('score', 0);
     }
 }

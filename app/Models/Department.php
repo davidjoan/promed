@@ -17,6 +17,10 @@ class Department extends Model
         'address',
         'location',
     ];
+
+    protected $casts = [
+        'location' => LocationCast::class
+    ];
     
     public function geo()
     {

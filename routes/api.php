@@ -4,14 +4,28 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\BrickController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ClientTypeController;
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\GeoController;
+use App\Http\Controllers\HobbyController;
 use App\Http\Controllers\InstitutionController;
+use App\Http\Controllers\InstitutionTypeController;
+use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\OrganizationTypeController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SegmentController;
+use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\TargetController;
+use App\Http\Controllers\TuitionController;
+use App\Http\Controllers\UniversityController;
+use App\Http\Resources\OrganizationType;
+use App\Http\Resources\Specialty;
+use App\Models\OrganizationType as ModelsOrganizationType;
+use App\Models\Specialty as ModelsSpecialty;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -47,11 +61,20 @@ Route::group([
             'assignments' => AssignmentController::class,
             'institutions' => InstitutionController::class,
             'organizations' => OrganizationController::class,
+            'organization_types' => OrganizationTypeController::class,
             'regions' => RegionController::class,
             'bricks' => BrickController::class,
-            'companies' => CompanyController::class,
             'geos' => GeoController::class,
             'targets' => TargetController::class,
+            'specialties' => SpecialtyController::class,
+            'districts' => DistrictController::class,
+            'categories' => CategoryController::class,
+            'client_types' => ClientTypeController::class,
+            'hobbies' => HobbyController::class,
+            'institution_types' => InstitutionTypeController::class,
+            'job_positions' => JobPositionController::class,
+            'segments' => SegmentController::class,
+            'tuitions' => TuitionController::class,
+            'universities' => UniversityController::class,
         ]);
-
   });

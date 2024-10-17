@@ -15,7 +15,6 @@ class CreateInstitutionsTable extends Migration
     {
         Schema::create('institutions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->index()->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('geo_id')->index()->references('id')->on('geo')->onDelete('cascade');
 			$table->foreignId('institution_type_id')->index()->references('id')->on('institution_types')->onDelete('cascade');
             $table->foreignId('brick_id')->nullable()->references('id')->on('bricks')->onDelete('cascade');

@@ -26,6 +26,22 @@ class OrganizationController extends Controller
     public function store(Request $request)
     {
         $organization = Organization::create($request->all());
+        $request->user()->addPoints(5);
+   
+        $bricks = json_decode(request('bricks'));
+        if($bricks){
+            $organization->bricks()->attach($bricks);
+        }
+
+        $regions = json_decode(request('regions'));
+        if($regions){
+            $organization->regions()->attach($regions);
+        }
+
+        $specialties = json_decode(request('specialties'));
+        if($specialties){
+            $organization->specialties()->attach($specialties);
+        }
         return response()->json($organization, 201);
     }
 
@@ -44,6 +60,22 @@ class OrganizationController extends Controller
     {
         $organization = Organization::find($id);
         $organization->update($request->all());
+        $request->user()->addPoints(2);
+
+        $bricks = json_decode(request('bricks'));
+        if($bricks){
+            $organization->bricks()->sync($bricks);
+        }
+
+        $regions = json_decode(request('regions'));
+        if($regions){
+            $organization->regions()->sync($regions);
+        }
+
+        $specialties = json_decode(request('specialties'));
+        if($specialties){
+            $organization->specialties()->sync($specialties);
+        }
         return response()->json($organization, 200);
     }
 

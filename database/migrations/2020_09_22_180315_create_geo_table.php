@@ -40,11 +40,6 @@ class CreateGeoTable extends Migration
      */
     public function down()
     {
-        Schema::table('therapeutics_classes', function (Blueprint $table) {
-            $table->dropForeign('therapeutics_classes_geo_id_foreign');
-            $table->dropForeign('therapeutics_classes_company_id_foreign');
-        });
-
         Schema::dropIfExists('geo');
     }
 }

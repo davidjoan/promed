@@ -2,9 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Campaign;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Campaign as ResourcesCampaign;
 
 class Login extends JsonResource
 {
@@ -19,7 +17,6 @@ class Login extends JsonResource
         return ['id' => $this->id, 
         'name' => $this->name, 
         'email' => $this->email, 
-        'organizations' => Organization::collection($this->organizations),
-        'campaigns' => ResourcesCampaign::collection(Campaign::limit(5)->get())];
+        'organizations' => Organization::collection($this->organizations),];
     }
 }

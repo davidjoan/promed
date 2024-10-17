@@ -4,7 +4,7 @@ namespace Database\Seeders;
 use App\Models\Geo;
 use App\Models\User;
 use App\Models\Brick;
-use App\Models\Company;
+
 use App\Models\Specialty;
 use App\Models\Organization;
 use Illuminate\Database\Seeder;
@@ -20,7 +20,6 @@ class OrganizationTableSeeder extends Seeder
      */
     public function run()
     {
-		$company = Company::where('name','App1t')->first();
 		$geo     = Geo::getCountry('PE');
 		
 		$filial         = OrganizationType::where('name','Filial')->first();
@@ -42,46 +41,33 @@ class OrganizationTableSeeder extends Seeder
 		$user10         = User::where('id',11)->first();
 		$user11         = User::where('id',12)->first();
 
-		$abbott_peru = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,
-			'user_id' => $user1->id,'organization_type_id' => $filial->id,'name' => 'App1t Perú']);
+		$promed_peru = Organization::create(['geo_id' => $geo->id,
+			'user_id' => $user1->id,'organization_type_id' => $filial->id,'name' => 'Promed Community']);
 		
-		$marketing   = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $unidad_negocio->id,'name' => 'Marketing']);
-		$comercial   = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'organization_type_id' => $unidad_negocio->id,'name' => 'Comercial']);
+		$marketing   = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $unidad_negocio->id,'name' => 'Marketing']);
+		$comercial   = Organization::create(['geo_id' => $geo->id,'user_id' => $user->id,'organization_type_id' => $unidad_negocio->id,'name' => 'Comercial']);
 		
-		$division_wh      = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Whoman Health','description' => 'ABBOTT_WH']);
-		$division_pain    = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Pain & Gastroenterology', 'description' => 'ABBOTT_PG']);
-		$division_rc      = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Respiratory Care','description' => 'ABBOTT_RC']);
-		$division_snc     = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'SNC','description' => 'ABBOTT_SNC']);
-		$division_cardio  = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Cardiovascular & Endocrinology','description' => 'ABBOTT_CE']);
-		$division_derma   = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Dermatology','description' => 'ABBOTT_DERMA']);
-		$division_otc     = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Consumer Health','description' => 'ABBOTT_CH']);
-		$division_generic = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Generics','description' => 'ABBOTT_GE']);
+		$division_wh      = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Whoman Health','description' => 'PROMED_WH']);
+		$division_pain    = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Pain & Gastroenterology', 'description' => 'PROMED_PG']);
+		$division_rc      = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Respiratory Care','description' => 'PROMED_RC']);
+		$division_snc     = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'SNC','description' => 'PROMED_SNC']);
+		$division_cardio  = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Cardiovascular & Endocrinology','description' => 'PROMED_CE']);
+		$division_derma   = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Dermatology','description' => 'PROMED_DERMA']);
+		$division_otc     = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Consumer Health','description' => 'PROMED_CH']);
+		$division_generic = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Generics','description' => 'PROMED_GE']);
 
-		$gynorec = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user3->id,'organization_type_id' => $linea->id,'name' => 'Gynorec']);
-		$gynofem = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user4->id,'organization_type_id' => $linea->id,'name' => 'Gynofem']);
-		$gynolab = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user5->id,'organization_type_id' => $linea->id,'name' => 'Gynolab']);
+		$gynorec = Organization::create(['geo_id' => $geo->id,'user_id' => $user3->id,'organization_type_id' => $linea->id,'name' => 'Gynorec']);
+		$gynofem = Organization::create(['geo_id' => $geo->id,'user_id' => $user4->id,'organization_type_id' => $linea->id,'name' => 'Gynofem']);
+		$gynolab = Organization::create(['geo_id' => $geo->id,'user_id' => $user5->id,'organization_type_id' => $linea->id,'name' => 'Gynolab']);
 		
-		$supervisor_a = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user6->id,'organization_type_id' => $supervisor->id,'name' => 'Supervisor Sur']);
-		$supervisor_b = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user7->id,'organization_type_id' => $supervisor->id,'name' => 'Supervisor Norte']);
+		$supervisor_a = Organization::create(['geo_id' => $geo->id,'user_id' => $user6->id,'organization_type_id' => $supervisor->id,'name' => 'Supervisor Sur']);
+		$supervisor_b = Organization::create(['geo_id' => $geo->id,'user_id' => $user7->id,'organization_type_id' => $supervisor->id,'name' => 'Supervisor Norte']);
 
-		$supervisor_a->users()->attach($user6);
-		$supervisor_b->users()->attach($user7);
+		$zona_a = Organization::create(['geo_id' => $geo->id,'user_id' => $user8->id,'organization_type_id' => $zona->id,'name' => 'Zona A Sur','selected' => true]);
+		$zona_b = Organization::create(['geo_id' => $geo->id,'user_id' => $user9->id,'organization_type_id' => $zona->id,'name' => 'Zona B Sur']);
+		$zona_c = Organization::create(['geo_id' => $geo->id,'user_id' => $user10->id,'organization_type_id' => $zona->id,'name' => 'Zona A Norte']);
+		$zona_d = Organization::create(['geo_id' => $geo->id,'user_id' => $user11->id,'organization_type_id' => $zona->id,'name' => 'Zona B Norte']);
 
-		$zona_a = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user8->id,'organization_type_id' => $zona->id,'name' => 'Zona A Sur','selected' => true]);
-		$zona_b = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user9->id,'organization_type_id' => $zona->id,'name' => 'Zona B Sur']);
-		$zona_c = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user10->id,'organization_type_id' => $zona->id,'name' => 'Zona A Norte']);
-		$zona_d = Organization::create(['company_id' => $company->id,'geo_id' => $geo->id,'user_id' => $user11->id,'organization_type_id' => $zona->id,'name' => 'Zona B Norte']);
-
-		$zona_a->users()->attach($user8);
-		$zona_b->users()->attach($user9);
-		$zona_c->users()->attach($user10);
-		$zona_d->users()->attach($user11);
-
-		$zona_a->users()->attach($user);
-		$zona_c->users()->attach($user);
-		$supervisor_a->users()->attach($user);
-		//bricks sur a san borja, surco
-		
 		$zona_a->bricks()->attach(Brick::where('code','3917')->first());
 		$zona_a->bricks()->attach(Brick::where('code','3915')->first());
 		$zona_a->bricks()->attach(Brick::where('code','3916')->first());
@@ -180,9 +166,9 @@ class OrganizationTableSeeder extends Seeder
 		$marketing->appendNode($division_otc);
 		$marketing->appendNode($division_generic);
 		
-		$abbott_peru->appendNode($marketing);
-	    $abbott_peru->appendNode($comercial);
+		$promed_peru->appendNode($marketing);
+	    $promed_peru->appendNode($comercial);
 		
-		$abbott_peru->save();
+		$promed_peru->save();
     }
 }

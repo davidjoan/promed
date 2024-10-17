@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3068db34ecbb2dc3a9eef6047f3b5a8b",
+    "content-hash": "aea9da7613b04f2e62f4ddb56508074b",
     "packages": [
         {
             "name": "brick/math",
@@ -134,6 +134,77 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "cjmellor/level-up",
+            "version": "v1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cjmellor/level-up.git",
+                "reference": "1131797cedcc29e783a0942afa388833627e8de0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cjmellor/level-up/zipball/1131797cedcc29e783a0942afa388833627e8de0",
+                "reference": "1131797cedcc29e783a0942afa388833627e8de0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0",
+                "php": "^8.1|^8.2",
+                "spatie/laravel-package-tools": "^1.15"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.10",
+                "nunomaduro/collision": "^7.0|^8.0",
+                "orchestra/testbench": "^8.0|^9.0",
+                "pestphp/pest": "^2.13",
+                "pestphp/pest-plugin-laravel": "^2.2",
+                "pestphp/pest-plugin-type-coverage": "^2.0",
+                "plannr/laravel-fast-refresh-database": "^1.0.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LevelUp\\Experience\\LevelUpServiceProvider"
+                    ],
+                    "aliases": {
+                        "Experience": "LevelUp\\Experience\\Facades\\Experience"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LevelUp\\Experience\\": "src/",
+                    "LevelUp\\Experience\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Mellor",
+                    "email": "chris@mellor.pizza",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package allows users to gain experience points (XP) and progress through levels by performing actions on your site. It can provide a simple way to track user progress and implement gamification elements into your application",
+            "homepage": "https://github.com/cjmellor/level-up",
+            "keywords": [
+                "Gamification",
+                "cjmellor",
+                "gamify",
+                "laravel",
+                "level-up"
+            ],
+            "support": {
+                "issues": "https://github.com/cjmellor/level-up/issues",
+                "source": "https://github.com/cjmellor/level-up/tree/v1.2.4"
+            },
+            "time": "2024-07-13T20:20:48+00:00"
         },
         {
             "name": "composer/semver",
@@ -3755,6 +3826,66 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.16.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c7413972cf22ffdff97b68499c22baa04eddb6a2",
+                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-08-27T18:56:10+00:00"
         },
         {
             "name": "spatie/laravel-permission",

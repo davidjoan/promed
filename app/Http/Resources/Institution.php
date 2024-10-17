@@ -16,7 +16,6 @@ class Institution extends JsonResource
     {
         return [
             'id' => $this->id,
-            'company_id' => $this->company_id,
             'geo_id' => $this->geo_id,
             'institution_type' => InstitutionType::make($this->institution_type),
             'district' => District::make($this->district),

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Campaign extends JsonResource
+class Hobby extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,7 +14,11 @@ class Campaign extends JsonResource
      */
     public function toArray($request)
     {
-        return ['id' => $this->id, 'name' => $this->name, 
-        'start' => $this->start, 'end' => $this->end, 'active' => $this->active];
+        return [
+            'id' => $this->id,
+            'code' => $this->code, 
+            'name' => $this->name, 
+            'description' => $this->description, 
+            'active' => $this->active];
     }
 }

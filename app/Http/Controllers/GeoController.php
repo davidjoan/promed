@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\GeoFilters;
 use Illuminate\Http\Request;
 use App\Http\Resources\Geo as GeoResource;
 use App\Models\Geo;
@@ -10,10 +11,13 @@ class GeoController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @param  App\Http\Resources\Geo  $request
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(GeoFilters $request)
     {
-        return GeoResource::collection(Geo::all());
+        return GeoResource::collection(Geo::filter($request)->get());
     }
 
     /**

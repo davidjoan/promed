@@ -26,6 +26,7 @@ class InstitutionController extends Controller
     public function store(Request $request)
     {
         $institution = Institution::create($request->all());
+        $request->user()->addPoints(10);
         return response()->json($institution, 201);
     }
 
@@ -47,6 +48,7 @@ class InstitutionController extends Controller
     {
         $institution = Institution::find($id);
         $institution->update($request->all());
+        $request->user()->addPoints(5);
         return response()->json($institution, 200);
     }
 

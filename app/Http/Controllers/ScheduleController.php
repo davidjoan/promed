@@ -27,6 +27,7 @@ class ScheduleController extends Controller
     public function store(Request $request)
     {
         $schedule = Schedule::create($request->all());
+        $request->user()->addPoints(12);
         return response()->json($schedule, 201);
     }
 
@@ -45,6 +46,7 @@ class ScheduleController extends Controller
     {
         $schedule = Schedule::find($id);
         $schedule->update($request->all());
+        $request->user()->addPoints(6);
         return response()->json($schedule, 200);
     }
 

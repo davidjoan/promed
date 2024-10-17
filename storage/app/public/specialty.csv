@@ -1,67 +1,67 @@
-ALE,ALERGOLOGIA,App1t,
-ANE,ANESTECIOLOGIA,App1t,
-ANG,ANGIOLOGIA,App1t,
-BAC,BAC,App1t,
-B.P,BRONCO PULMONAR,App1t,
-CAN,CAN,App1t,
-CAR,CARDIOLOGIA,App1t,cardiology
-CIR,CIRUGIA,App1t,surgery
-CPE,CIRUGIA PEDIATRICA,App1t,
-COF,CIRUJANO OFTALMOLOGO,App1t,
-CIP,CIRUJANO PLASTICO,App1t,
-COS,COSMIATRIA,App1t,
-DER,DERMATOLOGIA,App1t,dermatology
-EME,EMERGENCIOLOGO,App1t,emergency
-END,ENDOCRINOLOGIA,App1t,
-NUT,NUTRICION,App1t,
-GAS,GASTROENTEROLOGIA,App1t,
-GER,GERIATRIA,App1t,geriatrics
-GIN,GINECOLOGIA,App1t,
-GLA,GLAUCOMA,App1t,
-HEM,HEMATOLOGO,App1t,
-INF,INFECTOLOGIA,App1t,
-INM,INMUNOLOGIA,App1t,
-INT,INTERNO,App1t,internal
-MAS,MEDICINA AEROESPACIAL,App1t,
-MES,MEDICINA ESTETICA,App1t,
-MFI,MEDICINA FISICA,App1t,
-M.G,MEDICINA GENERAL,App1t,
-MIN,MEDICINA INTENSIVA,App1t,
-M.I,MEDICINA INTERNA,App1t,
-MPE,MEDICINA PREVENTIVA,App1t,
-NEF,NEFROLOGIA,App1t,nephrology
-NEO,NEOLOGIA,App1t,
-NEM,NEUMOLOGIA,App1t,
-NPE,NEURO PEDIATRIA,App1t,
-NEC,NEUROCIRUGIA,App1t,
-NEU,NEUROLOGIA,App1t,neurology
-OBS,OBSTETRICIA,App1t,
-ODO,ODONTOLOGIA,App1t,dentistry
-OFT,OFTALMOLOGIA,App1t,
-ONC,ONCOLOGIA,App1t,
-ORL,OTORRINOLARINGOLOGO,App1t,
-PED,PEDIATRA,App1t,
-PRO,PROCTOLOGIA,App1t,
-PSI,PSIQUIATRIA,App1t,psychiatry
-PIN,PSIQUIATRIA INFANTIL,App1t,
-RAD,RADIOLOGIA,App1t,radiology
-REH,REHABILITACION,App1t,rehabilitation
-REU,REUMATOLOGIA,App1t,
-TRA,TRAUMATOLOGIA,App1t,
-UCI,UNIDAD DE CUIDADOS INTENSIVOS,App1t,
-URO,UROLOGIA,App1t,urology
-C19,COVID 19,App1t,covid19,
-FER,Fertilidad,App1t,fertility
-MAT,Maternidad,App1t,maternity
-DEN,Dentista,App1t,Dentist
-COM,Comunidad Terapeutica,App1t,community
-ORT,Ortodoncia,App1t,orthodontics
-FST,Fisioterapia,App1t,physiotherapy
-PAT,Patología,App1t,pathology
-OTP,Ortopedia,App1t,orthopaedics
-DET,Dental,App1t,Dental
-MCT,Medicina China Tradicional,App1t,traditional_chinese_medicine
-PSC,Psicología,App1t,psychology
-RFX,Reflexología,App1t,reflexology
-NAT,Naturopatía,App1t,naturopathy
-VAC,Vacunación,App1t,vaccination
+ALE,ALERGOLOGIA,Promed,
+ANE,ANESTECIOLOGIA,Promed,
+ANG,ANGIOLOGIA,Promed,
+BAC,BAC,Promed,
+B.P,BRONCO PULMONAR,Promed,
+CAN,CAN,Promed,
+CAR,CARDIOLOGIA,Promed,cardiology
+CIR,CIRUGIA,Promed,surgery
+CPE,CIRUGIA PEDIATRICA,Promed,
+COF,CIRUJANO OFTALMOLOGO,Promed,
+CIP,CIRUJANO PLASTICO,Promed,
+COS,COSMIATRIA,Promed,
+DER,DERMATOLOGIA,Promed,dermatology
+EME,EMERGENCIOLOGO,Promed,emergency
+END,ENDOCRINOLOGIA,Promed,
+NUT,NUTRICION,Promed,
+GAS,GASTROENTEROLOGIA,Promed,
+GER,GERIATRIA,Promed,geriatrics
+GIN,GINECOLOGIA,Promed,
+GLA,GLAUCOMA,Promed,
+HEM,HEMATOLOGO,Promed,
+INF,INFECTOLOGIA,Promed,
+INM,INMUNOLOGIA,Promed,
+INT,INTERNO,Promed,internal
+MAS,MEDICINA AEROESPACIAL,Promed,
+MES,MEDICINA ESTETICA,Promed,
+MFI,MEDICINA FISICA,Promed,
+M.G,MEDICINA GENERAL,Promed,
+MIN,MEDICINA INTENSIVA,Promed,
+M.I,MEDICINA INTERNA,Promed,
+MPE,MEDICINA PREVENTIVA,Promed,
+NEF,NEFROLOGIA,Promed,nephrology
+NEO,NEOLOGIA,Promed,
+NEM,NEUMOLOGIA,Promed,
+NPE,NEURO PEDIATRIA,Promed,
+NEC,NEUROCIRUGIA,Promed,
+NEU,NEUROLOGIA,Promed,neurology
+OBS,OBSTETRICIA,Promed,
+ODO,ODONTOLOGIA,Promed,dentistry
+OFT,OFTALMOLOGIA,Promed,
+ONC,ONCOLOGIA,Promed,
+ORL,OTORRINOLARINGOLOGO,Promed,
+PED,PEDIATRA,Promed,
+PRO,PROCTOLOGIA,Promed,
+PSI,PSIQUIATRIA,Promed,psychiatry
+PIN,PSIQUIATRIA INFANTIL,Promed,
+RAD,RADIOLOGIA,Promed,radiology
+REH,REHABILITACION,Promed,rehabilitation
+REU,REUMATOLOGIA,Promed,
+TRA,TRAUMATOLOGIA,Promed,
+UCI,UNIDAD DE CUIDADOS INTENSIVOS,Promed,
+URO,UROLOGIA,Promed,urology
+C19,COVID 19,Promed,covid19,
+FER,Fertilidad,Promed,fertility
+MAT,Maternidad,Promed,maternity
+DEN,Dentista,Promed,Dentist
+COM,Comunidad Terapeutica,Promed,community
+ORT,Ortodoncia,Promed,orthodontics
+FST,Fisioterapia,Promed,physiotherapy
+PAT,Patología,Promed,pathology
+OTP,Ortopedia,Promed,orthopaedics
+DET,Dental,Promed,Dental
+MCT,Medicina China Tradicional,Promed,traditional_chinese_medicine
+PSC,Psicología,Promed,psychology
+RFX,Reflexología,Promed,reflexology
+NAT,Naturopatía,Promed,naturopathy
+VAC,Vacunación,Promed,vaccination

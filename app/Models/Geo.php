@@ -3,9 +3,12 @@ namespace App\Models;
 
 use App\Models\dbTree\EloquentTreeItem;
 use App\Models\Geo as ModelsGeo;
+use App\Filters\Filterable;
 
 class Geo extends EloquentTreeItem
 {
+    use Filterable;
+    
     protected $table = 'geo';
     protected $guarded = [];
     public $timestamps = false;
@@ -225,7 +228,7 @@ class Geo extends EloquentTreeItem
     }
 
     // ----------------------------------------------
-    //  App1t Functions
+    //  Promed Functions
     // ----------------------------------------------
 
     /**

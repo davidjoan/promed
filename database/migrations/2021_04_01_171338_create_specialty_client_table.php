@@ -13,7 +13,7 @@ class CreateSpecialtyClientTable extends Migration
      */
     public function up()
     {
-        Schema::create('specialty_client', function (Blueprint $table) {
+        Schema::create('client_specialty', function (Blueprint $table) {
             $table->id();
             $table->foreignId('specialty_id')->index()->references('id')->on('specialties')->onDelete('cascade');
             $table->foreignId('client_id')->index()->references('id')->on('clients')->onDelete('cascade');
@@ -28,6 +28,6 @@ class CreateSpecialtyClientTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialty_client');
+        Schema::dropIfExists('client_specialty');
     }
 }

@@ -15,14 +15,13 @@ class CreateAssignmentsTable extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->index()->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('geo_id')->index()->references('id')->on('geo')->onDelete('cascade');
             $table->foreignId('organization_id')->index()->references('id')->on('organizations')->onDelete('cascade');
             $table->foreignId('target_id')->index()->references('id')->on('targets')->onDelete('cascade');
             $table->foreignId('category_id')->index()->references('id')->on('categories')->onDelete('cascade');
             $table->foreignId('segment_id')->index()->references('id')->on('segments')->onDelete('cascade');
             $table->boolean('mark')->default(false);
-            $table->enum('score', [0, 1,2,3,4,5])->default(0);
+            $table->enum('score', [0,1,2,3,4,5])->default(0);
             $table->boolean('active')->default(true);
             $table->timestampsTz();
             $table->softDeletesTz();

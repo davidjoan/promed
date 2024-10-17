@@ -5,14 +5,11 @@ namespace App\Models;
 use TarfinLabs\LaravelSpatial\Traits\HasSpatial;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use TarfinLabs\LaravelSpatial\Casts\LocationCast;
 
 class Province extends Model
 {
     use HasFactory, HasSpatial;
-
-    protected $spatialFields = [
-        'area'
-    ];
 
 	protected $dateFormat = 'Y-m-d H:i:s';
     
@@ -24,6 +21,7 @@ class Province extends Model
     protected $casts = [
         'first_date' => 'date',
         'last_date'  => 'date',
+        'location' => LocationCast::class
     ];
 
     public function geo()

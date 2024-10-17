@@ -3,9 +3,7 @@
 namespace App\Models;
 
 use App\Models\Geo;
-use App\Models\Visit;
 use App\Models\Target;
-use App\Models\Company;
 use App\Models\Segment;
 use App\Models\Category;
 use App\Models\Organization;
@@ -24,14 +22,9 @@ class Assignment extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_id','geo_id','organization_id','target_id','category_id','segment_id','mark','score','active'];
+    protected $fillable = ['geo_id','organization_id','target_id','category_id','segment_id','mark','score','active'];
 	
 	protected $dateFormat = 'Y-m-d H:i:s';
-
-	public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
 
     public function geo()
     {

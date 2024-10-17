@@ -14,6 +14,11 @@ class BrickFilters extends QueryFilters
         parent::__construct($request);
     }
 
+    public function term($term = '')
+    {
+        return $this->builder->where('name','LIKE', '%'.$term.'%')->orWhere('description','LIKE', '%'.$term.'%')->orWhere('closeup','LIKE', '%'.$term.'%')->orWhere('ddd','LIKE', '%'.$term.'%');
+    }
+
     public function organization_id($term = '')
     {
         return $this->builder->whereHas('organizations', function($q) use ($term) {
