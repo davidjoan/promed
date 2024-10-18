@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Resources\Login;
 use App\Models\User;
+use LevelUp\Experience\Models\Achievement;
 
 class AuthController extends Controller
 {
@@ -35,12 +36,15 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:55',
             'email' => 'email|required|unique:users',
-            'password' => 'required|confirmed'
+            'password' => 'required'
         ]);
 
         $validatedData['password'] = bcrypt($request->password);
         $user = User::create($validatedData);
         $accessToken = $user->createToken('Promed')->accessToken;
+
+        $achievement = Achievement::find(1);
+        $user->grantAchievement($achievement);
 
         return $this->sendResponse([
             'user' => $user, 

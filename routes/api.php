@@ -7,6 +7,7 @@ use App\Http\Controllers\BrickController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ClientTypeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\GeoController;
 use App\Http\Controllers\HobbyController;
@@ -55,6 +56,7 @@ Route::group([
     'middleware' => 'auth:sanctum',
     'prefix' => 'v1.0'
   ], function() {         
+        Route::get('dashboard', [DashboardController::class, 'show']);
         Route::resources([
             'schedules' => ScheduleController::class,
             'clients' => ClientController::class,

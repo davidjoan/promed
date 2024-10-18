@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RegionTableSeeder::class);
         $this->call(BrickTableSeeder::class);
         $this->call(OrganizationTypeTableSeeder::class);
+        $this->call(LevelTableSeeder::class);
+        $this->call(AchievementTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(SpecialtyTableSeeder::class);
         $this->call(OrganizationTableSeeder::class);
@@ -36,6 +38,5 @@ class DatabaseSeeder extends Seeder
         $this->call(TargetTableSeeder::class);
         $this->call(AssignmentTableSeeder::class);
         $this->call(ScheduleTableSeeder::class);
-        $this->call(LevelTableSeeder::class);
     }
 }

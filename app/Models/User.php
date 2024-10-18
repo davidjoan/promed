@@ -10,14 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use LevelUp\Experience\Concerns\GiveExperience;
-
+use LevelUp\Experience\Concerns\HasAchievements;
 class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use Notifiable;
-    use HasRoles;
-    use GiveExperience;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, GiveExperience, HasAchievements;
 
     /**
      * The attributes that are mass assignable.
