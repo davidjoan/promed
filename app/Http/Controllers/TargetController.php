@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\TargetFilters;
 use Illuminate\Http\Request;
 use App\Http\Resources\Target as TargetResource;
 use App\Models\Target;
@@ -11,10 +12,13 @@ class TargetController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @param  App\Filters\TargetFilters  $request
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(TargetFilters $request)
     {
-        return TargetResource::collection(Target::all());
+        return TargetResource::collection(Target::filter($request)->get());
     }
 
     /**

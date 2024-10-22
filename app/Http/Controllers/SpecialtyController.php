@@ -12,7 +12,7 @@ class SpecialtyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  App\Http\Resources\Visit  $request
+     * @param  App\Filters\SpecialtyFilters  $request
      * @return \Illuminate\Http\Response
      */
     public function index(SpecialtyFilters $request)

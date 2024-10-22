@@ -16,7 +16,7 @@ class Assignment extends JsonResource
     {
         return  [
         'id' => $this->id,
-        'geo_id'     => $this->geo_id,
+        'geo_id' => $this->geo_id,
         'target' => Target::make($this->target),
         'category' => Category::make($this->category),
         'segment' => Segment::make($this->segment),
