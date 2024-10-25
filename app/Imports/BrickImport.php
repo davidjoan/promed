@@ -25,8 +25,7 @@ class BrickImport implements ToModel
             'geo_id' => $geo->id,
             'code' => $row[0],
             'name' => $row[1],
-            'description' => $row[2],
-            'geo_id' => $row[3]
+            'description' => $row[2]
         ));
 
         return $brick;
