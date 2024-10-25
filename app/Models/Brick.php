@@ -41,6 +41,6 @@ class Brick extends Model
 
     public function district()
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(Geo::class);
     }
 }

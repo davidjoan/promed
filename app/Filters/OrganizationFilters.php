@@ -14,6 +14,11 @@ class OrganizationFilters extends QueryFilters
         parent::__construct($request);
     }
 
+    public function term($term = '')
+    {
+        return $this->builder->where('name','LIKE', '%'.$term.'%');
+    }
+
     public function user_id($id = '')
     {
         return $this->builder->where('user_id', $id);

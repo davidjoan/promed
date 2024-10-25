@@ -14,8 +14,8 @@ class GeoFilters extends QueryFilters
         parent::__construct($request);
     }
 
-    public function level($id = '')
+    public function level($level = '')
     {
-        return $this->builder->where('level', $id);
+        return $this->builder->where('level', $level);
     }
 }

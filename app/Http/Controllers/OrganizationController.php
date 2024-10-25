@@ -84,8 +84,9 @@ class OrganizationController extends Controller
      */
     public function destroy(string $id)
     {
-        
-        Organization::destroy($id);
+        $organization = Organization::find($id);
+        $organization->update(['active' => '0']); 
+        $organization->delete();
         return response()->json(null, 204);
     }
 }

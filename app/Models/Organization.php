@@ -12,18 +12,20 @@ use Kalnoy\Nestedset\NodeTrait;
 use Yajra\Auditable\AuditableTrait;
 use Illuminate\Database\Eloquent\Model;
 use App\Filters\Filterable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Organization extends Model
 {
-  use NodeTrait, AuditableTrait,Filterable;
+  use NodeTrait, AuditableTrait,Filterable, SoftDeletes;
   
 	/**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['id','user_id','geo_id','organization_type_id','code', 'name', 'description','active','parent_id'];  
-
+    protected $fillable = ['id','user_id','geo_id','organization_type_id','code', 'name', 'description','active','parent_id'];
+    
+    protected $dates = ['deleted_at'];
 	protected $dateFormat = 'Y-m-d H:i:s';
 	
     public function bricks()
@@ -54,5 +56,11 @@ class Organization extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    public function assignments_qty()
+    {
+        return $this->hasMany(Assignment::class)->count();
     }
 }

@@ -8,7 +8,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ClientTypeController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\GeoController;
 use App\Http\Controllers\HobbyController;
 use App\Http\Controllers\InstitutionController;
@@ -69,7 +68,6 @@ Route::group([
             'geos' => GeoController::class,
             'targets' => TargetController::class,
             'specialties' => SpecialtyController::class,
-            'districts' => DistrictController::class,
             'categories' => CategoryController::class,
             'client_types' => ClientTypeController::class,
             'hobbies' => HobbyController::class,

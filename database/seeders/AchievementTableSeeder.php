@@ -24,7 +24,7 @@ class AchievementTableSeeder extends Seeder
             'name' => 'Welcome',
             'is_secret' => false,
             'description' => 'When a User hits Level 1',
-            'image' => '/storage/achievements/level-1.png',
+            'image' => 'storage/achievements/level-1.png',
         ]);
         Achievement::create([
             'name' => 'Hit Level 2',

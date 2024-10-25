@@ -18,7 +18,7 @@ class CreateBricksTable extends Migration
             $table->id();
 			$table->foreignId('geo_id')->references('id')->on('geo');
 			$table->foreignId('region_id')->references('id')->on('regions');
-            $table->foreignId('district_id')->nullable()->references('id')->on('districts');
+            $table->foreignId('district_id')->nullable()->references('id')->on('geo');
 			$table->string('code',10)->nullable();
             $table->string('name',100);
             $table->text('description')->nullable();
@@ -27,13 +27,6 @@ class CreateBricksTable extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
-        });
-
-        Schema::table('bricks', function (Blueprint $table) {
-            DB::statement("UPDATE `bricks` SET `location` = ST_GeomFromText('POINT(0 0)', 4326);");
-            DB::statement("ALTER TABLE `bricks` CHANGE `location` `location` POINT NOT NULL;");
-
-            $table->spatialIndex('location');
         });
     }
 

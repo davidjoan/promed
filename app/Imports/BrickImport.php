@@ -21,7 +21,7 @@ class BrickImport implements ToModel
         
         $brick = Brick::create(array(
             'region_id' => $region->id,
-            'district_id' => $row[6],
+            'district_id' => $row[3],
             'geo_id' => $geo->id,
             'code' => $row[0],
             'name' => $row[1],

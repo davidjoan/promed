@@ -18,7 +18,7 @@ class Institution extends JsonResource
             'id' => $this->id,
             'geo_id' => $this->geo_id,
             'institution_type' => InstitutionType::make($this->institution_type),
-            'district' => District::make($this->district),
+            'district' => Geo::make($this->district),
             'brick' =>  Brick::make($this->brick),
             'code' => $this->code,
             'ruc' => $this->ruc,

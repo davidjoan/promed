@@ -20,7 +20,6 @@ class CreateInstitutionsTable extends Migration
 			$table->foreignId('institution_type_id')->index()->references('id')->on('institution_types')->onDelete('cascade');
             $table->foreignId('brick_id')->nullable()->references('id')->on('bricks')->onDelete('cascade');
             $table->foreignId('specialty_id')->nullable()->references('id')->on('specialties')->onDelete('cascade');
-            $table->foreignId('district_id')->nullable()->references('id')->on('districts')->onDelete('cascade');
             $table->string('code',10)->nullable();
             $table->string('ruc' ,11)->nullable();
             $table->string('name',500);
@@ -28,9 +27,6 @@ class CreateInstitutionsTable extends Migration
             $table->text('address')->nullable();
             $table->text('reference')->nullable();
             $table->geography('location', 'point')->nullable();
-
-            $table->bigInteger('osm_id')->nullable();
-            $table->string('osm_type')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('uuid')->nullable();
             $table->boolean('emergency')->default(false);
@@ -43,22 +39,19 @@ class CreateInstitutionsTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
             $table->string('facebook')->nullable();
-            $table->string('operator')->nullable();
-            $table->string('operator_type')->nullable();
-
             $table->boolean('active')->default(true);
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
         });
 
-        
+        /*
         Schema::table('institutions', function (Blueprint $table) {
             DB::statement("UPDATE `institutions` SET `location` = ST_GeomFromText('POINT(0 0)', 4326);");
             DB::statement("ALTER TABLE `institutions` CHANGE `location` `location` POINT NOT NULL;");
 
             $table->spatialIndex('location');
-        });
+        });*/
     }
 
     /**
