@@ -36,6 +36,11 @@ class CreateClientsTable extends Migration
             $table->enum('gender', ['M', 'F'])->nullable();
             $table->enum('marital_status', ['Soltero', 'Casado','Viudo','Divorsiado'])->nullable();
             $table->boolean('is_alive')->default(true);
+            //TODO: Fix multiple specialties and academic record historial
+            //$table->string('regional_council',100)->nullable();//Regional Council
+            //$table->string('specialty_code',10)->nullable();//specialty code RNE
+            //$table->string('specialty_type',10)->nullable();//specialty type like RNE
+            //$table->date('date_of_specialty')->nullable();//date of graduation specialty
             $table->text('description')->nullable();
             $table->boolean('active')->default(true);
             $table->timestampsTz();

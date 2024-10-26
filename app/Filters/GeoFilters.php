@@ -14,6 +14,11 @@ class GeoFilters extends QueryFilters
         parent::__construct($request);
     }
 
+    public function term($term = '')
+    {
+        return $this->builder->where('name','LIKE', '%'.$term.'%');
+    }
+
     public function level($level = '')
     {
         return $this->builder->where('level', $level);

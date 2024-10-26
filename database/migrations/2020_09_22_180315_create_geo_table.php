@@ -13,22 +13,21 @@ class CreateGeoTable extends Migration
      */
     public function up()
     {
-
         Schema::create('geo', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('parent_id')->nullable();
-            $table->bigInteger('left')->nullable();
-            $table->bigInteger('right')->nullable();
-            $table->bigInteger('depth')->default(0);
+            $table->id();            
             $table->char('name', 60);
-            $table->text('alternames');
-            $table->char('country', 2);
-            $table->string('a1code', 25);
             $table->char('level', 10);
+            $table->char('country', 2)->nullable();
+            $table->string('a1code', 2)->nullable();
+            $table->string('a2code', 4)->nullable();
+            $table->string('a3code', 6)->nullable();
             $table->bigInteger('population');
-            $table->decimal('lat', 9, 6);
-            $table->decimal('long', 9, 6);
-            $table->char('timezone', 30);
+            $table->geography('location', 'point')->nullable();
+            $table->string('timezone', 30)->nullable();
+            $table->nestedSet();
+            $table->timestampsTz();
+            $table->softDeletesTz();
+            $table->auditable();
         });
 		
     }

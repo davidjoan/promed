@@ -1,14 +1,19 @@
 <?php
 namespace App\Models;
 
+use Yajra\Auditable\AuditableTrait;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use TarfinLabs\LaravelSpatial\Traits\HasSpatial;
 use App\Models\dbTree\EloquentTreeItem;
 use App\Models\Geo as ModelsGeo;
 use App\Filters\Filterable;
+use TarfinLabs\LaravelSpatial\Casts\LocationCast;
+use Kalnoy\Nestedset\NodeTrait;
 
 class Geo extends EloquentTreeItem
 {
-    use Filterable;
-    
+    use SoftDeletes, AuditableTrait, Filterable, HasSpatial, NodeTrait;
     protected $table = 'geo';
     protected $guarded = [];
     public $timestamps = false;
@@ -23,7 +28,9 @@ class Geo extends EloquentTreeItem
     const LEVEL_2 = 'ADM2';
     const LEVEL_3 = 'ADM3';
 
-    protected $casts = ['alternames' => 'array'];
+    protected $casts = [
+        'location' => LocationCast::class
+    ];
 
     // Hide From JSON
     protected $hidden = ['alternames', 'left', 'right', 'depth'];
@@ -177,11 +184,11 @@ class Geo extends EloquentTreeItem
         return self::ancenstors()->where('depth', $this->depth - 1)->first();
     }
 
-        // get Parent (Geo)
-        public function parent()
-        {
-            return $this->belongsTo(ModelsGeo::class,'parent_id','id');
-        }
+    // get Parent (Geo)
+    public function parent()
+    {
+        return $this->belongsTo(ModelsGeo::class,'parent_id','id');
+    }
     
     // get all Ancnstors (Collection) ordered by level (Country -> City)
     public function getAncensors()
@@ -196,7 +203,7 @@ class Geo extends EloquentTreeItem
     }
 
     // Return only $fields as Json. null = Show all
-    public function fliterFields($fields = null)
+    public function filterFields($fields = null)
     {
         if (is_string($fields)) { // Comma Seperated List (eg Url Param)
             $fields = explode(',', $fields);
@@ -216,29 +223,5 @@ class Geo extends EloquentTreeItem
         }
 
         return $this;
-    }
-
-    // ----------------------------------------------
-    //  Routes
-    // ----------------------------------------------
-
-    public static function ApiRoutes()
-    {
-        require_once __DIR__ . '/routes.php';
-    }
-
-    // ----------------------------------------------
-    //  Promed Functions
-    // ----------------------------------------------
-
-    /**
-     * Get the Target's full name.
-     *
-     * @return string
-     */
-    public function getFullNameAttribute()
-    {
-        $fullname = $this->name.' ('.$this->level.')';
-        return $fullname;
     }
 }
