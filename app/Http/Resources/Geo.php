@@ -26,7 +26,7 @@ class Geo extends JsonResource
         'population' => $this->population,
         'location' => ($this->location)?$this->location->toArray():null,
         'timezone' => $this->timezone,
-        'parent' =>  ($this->parent)?$this->parent->toArray():null,
+        'parent' =>  Geo::make($this->parent),
     ];
     }
 }
