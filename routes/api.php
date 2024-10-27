@@ -15,17 +15,12 @@ use App\Http\Controllers\InstitutionTypeController;
 use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\OrganizationTypeController;
-use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SegmentController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\TargetController;
 use App\Http\Controllers\TuitionController;
 use App\Http\Controllers\UniversityController;
-use App\Http\Resources\OrganizationType;
-use App\Http\Resources\Specialty;
-use App\Models\OrganizationType as ModelsOrganizationType;
-use App\Models\Specialty as ModelsSpecialty;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -63,7 +58,6 @@ Route::group([
             'institutions' => InstitutionController::class,
             'organizations' => OrganizationController::class,
             'organization_types' => OrganizationTypeController::class,
-            'regions' => RegionController::class,
             'bricks' => BrickController::class,
             'geos' => GeoController::class,
             'targets' => TargetController::class,

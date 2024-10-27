@@ -16,9 +16,8 @@ class CreateBricksTable extends Migration
     {
         Schema::create('bricks', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('geo_id')->references('id')->on('geo');
-			$table->foreignId('region_id')->references('id')->on('regions');
-            $table->foreignId('district_id')->nullable()->references('id')->on('geo');
+			$table->foreignId('geo_id')->references('id')->on('geo');//country
+            $table->foreignId('district_id')->nullable()->references('id')->on('geo');//city
 			$table->string('code',10)->nullable();
             $table->string('name',100);
             $table->text('description')->nullable();

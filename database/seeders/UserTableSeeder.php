@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         
         $user01 = User::create(['name' => 'David Tataje','email' => 'davidtataje@gmail.com','password' => bcrypt('1234')]);
-        $user02 = User::create(['name' => $faker->name,'email' => $faker->email,'password' => bcrypt('1234')]);
+        $user02 = User::create(['name' => 'Joan Mendoza','email' => 'new.skin007@gmail.com','password' => bcrypt('1234')]);
         $user03 = User::create(['name' => $faker->name,'email' => $faker->email,'password' => bcrypt('1234')]);
         $user04 = User::create(['name' => $faker->name,'email' => $faker->email,'password' => bcrypt('1234')]);
         $user05 = User::create(['name' => $faker->name,'email' => $faker->email,'password' => bcrypt('1234')]);
@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
         $user10 = User::create(['name' => $faker->name,'email' => $faker->email,'password' => bcrypt('1234')]);
         $user11 = User::create(['name' => $faker->name,'email' => $faker->email,'password' => bcrypt('1234')]);
         $user12 = User::create(['name' => $faker->name,'email' => $faker->email,'password' => bcrypt('1234')]);
-
+  
         $achievement = Achievement::find(1);
         $user01->grantAchievement($achievement);
         $user02->grantAchievement($achievement);

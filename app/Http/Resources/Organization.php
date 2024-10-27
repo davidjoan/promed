@@ -24,7 +24,6 @@ class Organization extends JsonResource
             'selected' => $this->selected,
             'active' => $this->active,
             'bricks' => Brick::collection($this->bricks),
-            'regions' => Region::collection($this->regions),
             'specialties' => Specialty::collection($this->specialties),
             'assignments_qty' => $this->assignments_qty()];
     }

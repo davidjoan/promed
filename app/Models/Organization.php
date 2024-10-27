@@ -38,11 +38,6 @@ class Organization extends Model
         return $this->belongsToMany(Specialty::class);
     }
 
-    public function regions()
-    {
-        return $this->belongsToMany(Region::class);
-    }
-
     public function organization_type()
     {
         return $this->belongsTo(OrganizationType::class);

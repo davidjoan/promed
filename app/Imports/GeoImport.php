@@ -3,8 +3,6 @@
 namespace App\Imports;
 
 use App\Models\Geo;
-use App\Models\Brick;
-use App\Models\Region;
 use Maatwebsite\Excel\Concerns\ToModel;
 use TarfinLabs\LaravelSpatial\Types\Point;
 

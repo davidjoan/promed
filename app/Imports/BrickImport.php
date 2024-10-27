@@ -4,7 +4,6 @@ namespace App\Imports;
 
 use App\Models\Geo;
 use App\Models\Brick;
-use App\Models\Region;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class BrickImport implements ToModel
@@ -16,11 +15,9 @@ class BrickImport implements ToModel
     */
     public function model(array $row)
     {
-        $region  = Region::where('name',$row[4])->first();
         $geo     = Geo::getCountry('PE');
         
         $brick = Brick::create(array(
-            'region_id' => $region->id,
             'district_id' => $row[3],
             'geo_id' => $geo->id,
             'code' => $row[0],

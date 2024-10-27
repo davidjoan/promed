@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(GeoTableSeeder::class);
-        $this->call(RegionTableSeeder::class);
         $this->call(BrickTableSeeder::class);
         $this->call(OrganizationTypeTableSeeder::class);
         $this->call(LevelTableSeeder::class);

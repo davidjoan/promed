@@ -33,11 +33,6 @@ class OrganizationController extends Controller
             $organization->bricks()->attach($bricks);
         }
 
-        $regions = json_decode(request('regions'));
-        if($regions){
-            $organization->regions()->attach($regions);
-        }
-
         $specialties = json_decode(request('specialties'));
         if($specialties){
             $organization->specialties()->attach($specialties);
@@ -67,16 +62,11 @@ class OrganizationController extends Controller
             $organization->bricks()->sync($bricks);
         }
 
-        $regions = json_decode(request('regions'));
-        if($regions){
-            $organization->regions()->sync($regions);
-        }
-
         $specialties = json_decode(request('specialties'));
         if($specialties){
             $organization->specialties()->sync($specialties);
         }
-        return response()->json($organization, 200);
+        return response()->json(new OrganizationResource($organization), 200);
     }
 
     /**
