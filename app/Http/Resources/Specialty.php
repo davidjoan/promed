@@ -19,6 +19,7 @@ class Specialty extends JsonResource
             'code' => $this->code,
             'name' => $this->name, 
             'description' => $this->description,
-            'active' => $this->active];
+            'active' => $this->active
+        ];
     }
 }

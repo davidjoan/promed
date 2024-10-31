@@ -20,7 +20,7 @@ class CreateAssignmentsTable extends Migration
             $table->foreignId('target_id')->index()->references('id')->on('targets')->onDelete('cascade');
             $table->foreignId('category_id')->index()->references('id')->on('categories')->onDelete('cascade');
             $table->foreignId('segment_id')->index()->references('id')->on('segments')->onDelete('cascade');
-            $table->boolean('mark')->default(false);
+            $table->boolean('like')->default(false);
             $table->enum('score', [0,1,2,3,4,5])->default(0);
             $table->boolean('active')->default(true);
             $table->timestampsTz();

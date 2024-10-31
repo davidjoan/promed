@@ -15,16 +15,15 @@ class Assignment extends JsonResource
     public function toArray($request)
     {
         return  [
-        'id' => $this->id,
-        'geo_id' => $this->geo_id,
-        'organization_id' => $this->organization_id,
-        'target' => Target::make($this->target),
-        'category' => Category::make($this->category),
-        'segment' => Segment::make($this->segment),
-        'mark' => $this->mark,
-        'score' => $this->score,
-        'active' => $this->active,
-        'created_at' => $this->created_at,
-        'updated_at' => $this->updated_at];
+            'id' => $this->id,
+            'geo_id' => $this->geo_id,
+            'organization_id' => $this->organization_id,
+            'target' => Target::make($this->target),
+            'category' => Category::make($this->category),
+            'segment' => Segment::make($this->segment),
+            'like' => $this->like,
+            'score' => $this->score,
+            'active' => $this->active
+        ];
     }
 }

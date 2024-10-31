@@ -14,7 +14,7 @@ class AssignmentFilters extends QueryFilters
         parent::__construct($request);
     }
 
-    public function terms($term = '')
+    public function term($term = '')
     {
         return $this->builder->whereHas('target', function($q) use ($term) {
             $q->whereHas('client', function ($q) use ($term){

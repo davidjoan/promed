@@ -20,13 +20,10 @@ class Geo extends JsonResource
         'name' => $this->name, 
         'level' => $this->level,
         'country' => $this->country,
-        'a1code' => $this->a1code,
-        'a2code' => $this->a2code,
-        'a3code' => $this->a3code,
         'population' => $this->population,
         'location' => ($this->location)?$this->location->toArray():null,
         'timezone' => $this->timezone,
-        'parent' =>  Geo::make($this->parent),
+        'parent' => Geo::make($this->parent)
     ];
     }
 }

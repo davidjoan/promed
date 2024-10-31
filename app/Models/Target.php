@@ -73,23 +73,13 @@ class Target extends Model
         return $fullname;
     }
 
-        /**
+    /**
      * Write code on Method
      *
      * @return response()
      */
     public function likes()
     {
-        return $this->hasMany(Assignment::class)->where('score', 1);
-    }
-
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function dislikes()
-    {
-        return $this->hasMany(Assignment::class)->where('score', 0);
+        return $this->hasMany(Assignment::class)->where('like', true)->count();
     }
 }

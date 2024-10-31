@@ -18,7 +18,11 @@ class AssignmentController extends Controller
      */
     public function index(AssignmentFilters $request)
     {
-        return AssignmentResource::collection(Assignment::filter($request)->get());
+        return (AssignmentResource::collection(Assignment::filter($request)->paginate(10)))
+        ->response()
+        ->header('Accept', 'application/json')->
+          header('Content-Type', 'application/json')->
+          header('Charset', 'utf-8');
     }
 
     /**

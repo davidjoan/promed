@@ -20,9 +20,8 @@ class Target extends JsonResource
             'institution' => Institution::make($this->institution),
             'job_position' => JobPosition::make($this->job_position),
             'specialty_target' => Specialty::make($this->specialty),
-            'active' => $this->active,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at
+            'likes' => $this->likes(),
+            'active' => $this->active
         ];
     }
 }

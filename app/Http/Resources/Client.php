@@ -16,7 +16,7 @@ class Client extends JsonResource
     {
         return [
         'id' => $this->id,
-        'client_type' =>  ClientType::make($this->client_type),
+        'client_type' => ClientType::make($this->client_type),
         'tuition' =>  Tuition::make($this->tuition),
         'nationality' =>  Geo::make($this->nationality),
         'specialty_base' =>  Specialty::make($this->specialty),
@@ -29,16 +29,28 @@ class Client extends JsonResource
         'email' => $this->email,
         'phone' => $this->phone,
         'mobile' => $this->mobile,
-        'date_of_birth' => date('d/m/Y',strtotime($this->date_of_birth)),
-        'date_of_graduation' => date('d/m/Y',strtotime($this->date_of_graduation)),
-        'date_of_aniversary' => date('d/m/Y',strtotime($this->date_of_aniversary)),
+        'date_of_birth' => $this->date_of_birth,
+        'date_of_graduation' => $this->date_of_graduation,
+        'date_of_aniversary' => $this->date_of_aniversary,
         'gender' => $this->gender,
         'marital_status' => $this->marital_status,
         'description' => $this->description,
         'active' => $this->active,
-        'created_at' => $this->created_at,
-        'updated_at' => $this->updated_at,
         'specialties' => Specialty::collection($this->specialties),
-        'hobbies' => Hobby::collection($this->hobbies),];
+        'hobbies' => Hobby::collection($this->hobbies)];
+    }
+
+    /**
+     * Customize the outgoing response for the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Response  $response
+     * @return void
+     */
+    public function withResponse($request, $response)
+    {
+        $response->header('Accept', 'application/json');
+        $response->header('Content-Type', 'application/json;charset=UTF-8');
+        $response->header('Charset', 'utf-8');
     }
 }

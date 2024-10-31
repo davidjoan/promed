@@ -22,7 +22,7 @@ class Assignment extends Model
      *
      * @var array
      */
-    protected $fillable = ['geo_id','organization_id','target_id','category_id','segment_id','mark','score','active'];
+    protected $fillable = ['geo_id','organization_id','target_id','category_id','segment_id','like','score','active'];
 	
 	protected $dateFormat = 'Y-m-d H:i:s';
 
