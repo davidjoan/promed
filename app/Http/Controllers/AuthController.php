@@ -1,10 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Geo as ResourcesGeo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Http\Resources\Login;
+use App\Http\Resources\User as ResourcesUser;
+use App\Models\Geo;
 use App\Models\User;
 use LevelUp\Experience\Models\Achievement;
 
@@ -18,8 +21,9 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 		if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
-			$success['user']  =  Login::make($request->user()); 
-            $success['token'] =  $request->user()->createToken('Promed')->plainTextToken; 
+			$success['token'] = $request->user()->createToken('Promed')->plainTextToken;
+            $success['user']  = ResourcesUser::make($request->user()); 
+            $success['geo']   = ResourcesGeo::make(Geo::getCountry('PE')); // TODO: Fix replace by selector of countries availables
 			return $this->sendResponse($success, 'Login successfully.');
 		} else{ 
 			return $this->sendError('Login Error.', ['error'=>'Unauthorized'], 401);

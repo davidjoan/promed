@@ -15,7 +15,6 @@ class CreateSpecialtiesTable extends Migration
     {
         Schema::create('specialties', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('geo_id')->unsigned()->nullable();
 			$table->string('code',10)->nullable();
             $table->string('name',100);
             $table->text('description')->nullable();
@@ -23,8 +22,6 @@ class CreateSpecialtiesTable extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->auditable();
-            
-            $table->foreign('geo_id')->references('id')->on('geo');
         });
     }
 

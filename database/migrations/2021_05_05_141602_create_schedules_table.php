@@ -15,7 +15,6 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('geo_id')->index()->references('id')->on('geo')->onDelete('cascade');
             $table->foreignId('target_id')->index()->references('id')->on('targets')->onDelete('cascade');
             $table->enum('day', ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado','domingo'])->nullable();
             $table->time('start_time')->nullable();

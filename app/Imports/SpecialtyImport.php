@@ -14,11 +14,8 @@ class SpecialtyImport implements ToModel
     * @return Specialty|null
     */
     public function model(array $row)
-    {
-        $geo     = Geo::getCountry('PE');
-                
+    {                
         $specialty = Specialty::create(array(
-            'geo_id' => $geo->id,
             'code' => $row[0],
             'name' => $row[1],
             'description' => $row['3']

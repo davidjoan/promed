@@ -16,6 +16,7 @@ class Brick extends JsonResource
     {
         return [
             'id' => $this->id,
+            'geo_id' => $this->geo_id,
             'district' => Geo::make($this->district),
             'code' => $this->code, 
             'name' => $this->name, 

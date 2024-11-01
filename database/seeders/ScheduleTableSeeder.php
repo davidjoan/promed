@@ -31,7 +31,7 @@ class ScheduleTableSeeder extends Seeder
 
                 $time = $this->getStartTime();
 
-                Schedule::create(array('geo_id' => $target->geo_id,
+                Schedule::create(array(
                 'target_id' => $target->id,
                 'day' => $day,
                 'start_time' => $time,

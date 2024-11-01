@@ -16,6 +16,7 @@ class Client extends JsonResource
     {
         return [
         'id' => $this->id,
+        'geo_id' => $this->geo_id,
         'client_type' => ClientType::make($this->client_type),
         'tuition' =>  Tuition::make($this->tuition),
         'nationality' =>  Geo::make($this->nationality),

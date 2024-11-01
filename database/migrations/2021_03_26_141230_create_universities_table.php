@@ -15,7 +15,6 @@ class CreateUniversitiesTable extends Migration
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('geo_id')->index()->references('id')->on('geo')->onDelete('cascade');
 			$table->string('code',10)->nullable();
             $table->string('name',100);
             $table->text('description')->nullable();

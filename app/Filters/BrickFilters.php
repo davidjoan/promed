@@ -19,10 +19,13 @@ class BrickFilters extends QueryFilters
         return $this->builder->where('name','LIKE', '%'.$term.'%')->orWhere('description','LIKE', '%'.$term.'%')->orWhere('closeup','LIKE', '%'.$term.'%')->orWhere('ddd','LIKE', '%'.$term.'%');
     }
 
-    public function organization_id($term = '')
+    public function geo_id($term = '')
     {
-        return $this->builder->whereHas('organizations', function($q) use ($term) {
-            $q->whereIn('organization_id', explode('|',$term));
-        });
+        return $this->builder->where('geo_id','=', $term);
+    }
+    
+    public function district_id($term = '')
+    {
+        return $this->builder->where('district_id','=', $term);
     }
 }

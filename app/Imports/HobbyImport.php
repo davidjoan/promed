@@ -16,10 +16,7 @@ class HobbyImport implements ToModel
     */
     public function model(array $row)
     {
-        $geo     = Geo::getCountry('PE');
-                
         $hobby = Hobby::create(array(
-            'geo_id' => $geo->id,
             'code' => $row[0],
             'name' => $row[1]
         ));

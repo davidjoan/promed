@@ -15,8 +15,7 @@ class Schedule extends JsonResource
     public function toArray($request)
     {
         return [
-        'id' => $this->id,   
-        'geo_id' => $this->geo_id,  
+        'id' => $this->id,
         'target_id' => $this->target_id,     
         'day' => $this->day,
         'start_time' => date('h:i a',strtotime($this->start_time)),

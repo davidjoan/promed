@@ -16,6 +16,7 @@ class Target extends JsonResource
     {
         return [
             'id' => $this->id,
+            'geo_id' => $this->geo_id,
             'client' => Client::make($this->client),
             'institution' => Institution::make($this->institution),
             'job_position' => JobPosition::make($this->job_position),
