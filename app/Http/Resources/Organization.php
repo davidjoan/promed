@@ -16,6 +16,7 @@ class Organization extends JsonResource
     {
         return [
             'id' => $this->id,
+            'user_id' => $this->user_id,
             'geo_id' => $this->geo_id,
             'organization_type' => OrganizationType::make($this->organization_type),
             'code' => $this->code,

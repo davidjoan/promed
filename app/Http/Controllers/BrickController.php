@@ -18,7 +18,10 @@ class BrickController extends Controller
      */
     public function index(BrickFilters $request)
     {
-        return BrickResource::collection(Brick::filter($request)->get());
+        return BrickResource::collection(Brick::filter($request)->paginate(50))->response()
+        ->header('Accept', 'application/json')->
+          header('Content-Type', 'application/json')->
+          header('Charset', 'utf-8');
     }
 
     /**

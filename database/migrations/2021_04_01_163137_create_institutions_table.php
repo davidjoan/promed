@@ -28,7 +28,6 @@ class CreateInstitutionsTable extends Migration
             $table->text('reference')->nullable();
             $table->geography('location', 'point')->nullable();
             $table->string('contact_number')->nullable();
-            $table->string('uuid')->nullable();
             $table->boolean('emergency')->default(false);
             $table->boolean('ambulance')->default(false);
             $table->boolean('wheelchair')->default(false);

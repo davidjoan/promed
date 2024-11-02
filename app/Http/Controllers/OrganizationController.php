@@ -28,12 +28,12 @@ class OrganizationController extends Controller
         $organization = Organization::create($request->all());
         $request->user()->addPoints(5);
    
-        $bricks = json_decode(request('bricks'));
+        $bricks = $request->input('bricks');
         if($bricks){
             $organization->bricks()->attach($bricks);
         }
 
-        $specialties = json_decode(request('specialties'));
+        $specialties = $request->input('specialties');
         if($specialties){
             $organization->specialties()->attach($specialties);
         }
@@ -57,12 +57,12 @@ class OrganizationController extends Controller
         $organization->update($request->all());
         $request->user()->addPoints(2);
 
-        $bricks = json_decode(request('bricks'));
+        $bricks = $request->input('bricks');
         if($bricks){
             $organization->bricks()->sync($bricks);
         }
 
-        $specialties = json_decode(request('specialties'));
+        $specialties = $request->input('specialties');
         if($specialties){
             $organization->specialties()->sync($specialties);
         }

@@ -16,7 +16,9 @@ class BrickFilters extends QueryFilters
 
     public function term($term = '')
     {
-        return $this->builder->where('name','LIKE', '%'.$term.'%')->orWhere('description','LIKE', '%'.$term.'%')->orWhere('closeup','LIKE', '%'.$term.'%')->orWhere('ddd','LIKE', '%'.$term.'%');
+        return $this->builder->whereHas('district', function($q) use ($term) {
+                $q->where('name','LIKE', '%'.$term.'%');
+        });
     }
 
     public function geo_id($term = '')
