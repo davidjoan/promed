@@ -53,7 +53,6 @@ class Organization extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function assignments_qty()
     {
         return $this->hasMany(Assignment::class)->count();

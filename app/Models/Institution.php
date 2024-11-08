@@ -25,23 +25,13 @@ class Institution extends Model
      * 
      * @var array
      */
-    protected $fillable = ['geo_id','institution_type_id','brick_id','district_id','specialty_id', 'code','ruc', 'name', 'description','address','reference','latitude','longitude','position','location','active'];
+    protected $fillable = ['geo_id','institution_type_id','brick_id', 'code','ruc', 'name', 'description','address','reference','latitude','longitude','position','location','active'];
 
 	protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $casts = [
         'location' => LocationCast::class
     ];
-
-    public function specialty()
-    {
-        return $this->belongsTo(Specialty::class);
-    }
-
-    public function brick()
-    {
-        return $this->belongsTo(Brick::class);
-    }
 
     public function geo()
     {
@@ -53,14 +43,19 @@ class Institution extends Model
         return $this->belongsTo(InstitutionType::class);
     }
 
+    public function brick()
+    {
+        return $this->belongsTo(Brick::class);
+    }
+
     public function targets()
     {
         return $this->hasMany(Target::class);
     }
 
-    public function district()
+    public function targets_qty()
     {
-        return $this->belongsTo(Geo::class);
+        return $this->hasMany(Target::class)->count();
     }
 
     /**

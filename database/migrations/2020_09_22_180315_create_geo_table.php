@@ -29,7 +29,6 @@ class CreateGeoTable extends Migration
             $table->softDeletesTz();
             $table->auditable();
         });
-		
     }
 
     /**

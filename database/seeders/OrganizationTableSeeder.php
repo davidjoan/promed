@@ -28,45 +28,36 @@ class OrganizationTableSeeder extends Seeder
 		$linea          = OrganizationType::where('name','Linea')->first();
 		$supervisor     = OrganizationType::where('name','Supervisor')->first();
 		$zona           = OrganizationType::where('name','Zona')->first();
-		$user           = User::where('id',1)->first();
-		$user1          = User::where('id',2)->first();
-		$user2          = User::where('id',3)->first();
-		$user3          = User::where('id',4)->first();
-		$user4          = User::where('id',5)->first();
-		$user5          = User::where('id',6)->first();
-		$user6          = User::where('id',7)->first();
-		$user7          = User::where('id',8)->first();
-		$user8          = User::where('id',9)->first();
-		$user9          = User::where('id',10)->first();
-		$user10         = User::where('id',11)->first();
-		$user11         = User::where('id',12)->first();
+		$user1           = User::where('id',1)->first();
+		$user2          = User::where('id',2)->first();
+		
 
 		$promed_peru = Organization::create(['geo_id' => $geo->id,
 			'user_id' => $user1->id,'organization_type_id' => $filial->id,'name' => 'Promed Community']);
 		
-		$marketing   = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $unidad_negocio->id,'name' => 'Marketing']);
-		$comercial   = Organization::create(['geo_id' => $geo->id,'user_id' => $user->id,'organization_type_id' => $unidad_negocio->id,'name' => 'Comercial']);
+		$marketing   = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $unidad_negocio->id,'code' => 'MKT','name' => 'Marketing']);
+		$comercial   = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $unidad_negocio->id ,'code' => 'COM','name' => 'Comercial']);
 		
-		$division_wh      = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Whoman Health','description' => 'PROMED_WH']);
-		$division_pain    = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Pain & Gastroenterology', 'description' => 'PROMED_PG']);
-		$division_rc      = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Respiratory Care','description' => 'PROMED_RC']);
-		$division_snc     = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'SNC','description' => 'PROMED_SNC']);
-		$division_cardio  = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Cardiovascular & Endocrinology','description' => 'PROMED_CE']);
-		$division_derma   = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Dermatology','description' => 'PROMED_DERMA']);
-		$division_otc     = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Consumer Health','description' => 'PROMED_CH']);
-		$division_generic = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'name' => 'Generics','description' => 'PROMED_GE']);
+		$division_wh      = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'WH','name' => 'Whoman Health','description' => 'PROMED_WH']);
+		$division_pain    = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'PG','name' => 'Pain & Gastroenterology', 'description' => 'PROMED_PG']);
+		$division_rc      = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'RC','name' => 'Respiratory Care','description' => 'PROMED_RC']);
+		$division_snc     = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'SNC','name' => 'SNC','description' => 'PROMED_SNC']);
+		$division_cardio  = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'CE','name' => 'Cardiovascular & Endocrinology','description' => 'PROMED_CE']);
+		$division_derma   = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'DER','name' => 'Dermatology','description' => 'PROMED_DERMA']);
+		$division_otc     = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'CH','name' => 'Consumer Health','description' => 'PROMED_CH']);
+		$division_generic = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $division->id,'code' => 'GE','name' => 'Generics','description' => 'PROMED_GE']);
 
-		$gynorec = Organization::create(['geo_id' => $geo->id,'user_id' => $user3->id,'organization_type_id' => $linea->id,'name' => 'Gynorec']);
-		$gynofem = Organization::create(['geo_id' => $geo->id,'user_id' => $user4->id,'organization_type_id' => $linea->id,'name' => 'Gynofem']);
-		$gynolab = Organization::create(['geo_id' => $geo->id,'user_id' => $user5->id,'organization_type_id' => $linea->id,'name' => 'Gynolab']);
+		$gynorec = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $linea->id,'code' => 'GR','name' => 'Gynorec']);
+		$gynofem = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $linea->id,'code' => 'GF','name' => 'Gynofem']);
+		$gynolab = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $linea->id,'code' => 'GL','name' => 'Gynolab']);
 		
-		$supervisor_a = Organization::create(['geo_id' => $geo->id,'user_id' => $user6->id,'organization_type_id' => $supervisor->id,'name' => 'Supervisor Sur']);
-		$supervisor_b = Organization::create(['geo_id' => $geo->id,'user_id' => $user7->id,'organization_type_id' => $supervisor->id,'name' => 'Supervisor Norte']);
+		$supervisor_a = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $supervisor->id,'code' => 'S01','name' => 'Supervisor Sur']);
+		$supervisor_b = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $supervisor->id,'code' => 'S02','name' => 'Supervisor Norte']);
 
-		$zona_a = Organization::create(['geo_id' => $geo->id,'user_id' => $user8->id,'organization_type_id' => $zona->id,'name' => 'Zona A Sur','selected' => true]);
-		$zona_b = Organization::create(['geo_id' => $geo->id,'user_id' => $user9->id,'organization_type_id' => $zona->id,'name' => 'Zona B Sur']);
-		$zona_c = Organization::create(['geo_id' => $geo->id,'user_id' => $user10->id,'organization_type_id' => $zona->id,'name' => 'Zona A Norte']);
-		$zona_d = Organization::create(['geo_id' => $geo->id,'user_id' => $user11->id,'organization_type_id' => $zona->id,'name' => 'Zona B Norte']);
+		$zona_a = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $zona->id,'code' => 'ZAS', 'name' => 'Zona A Sur','selected' => true]);
+		$zona_b = Organization::create(['geo_id' => $geo->id,'user_id' => $user2->id,'organization_type_id' => $zona->id,'code' => 'ZBS','name' => 'Zona B Sur']);
+		$zona_c = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $zona->id,'code' => 'ZAN','name' => 'Zona A Norte']);
+		$zona_d = Organization::create(['geo_id' => $geo->id,'user_id' => $user1->id,'organization_type_id' => $zona->id,'code' => 'ZBN','name' => 'Zona B Norte']);
 
 		$zona_a->bricks()->attach(Brick::where('code','3917')->first());
 		$zona_a->bricks()->attach(Brick::where('code','3915')->first());

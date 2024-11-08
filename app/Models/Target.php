@@ -11,11 +11,11 @@ use App\Models\JobPosition;
 use Yajra\Auditable\AuditableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Filters\Filterable;
 
 class Target extends Model
 {
-    use SoftDeletes;
-    use AuditableTrait;
+    use SoftDeletes, AuditableTrait, Filterable;
 	/**
      * The attributes that are mass assignable.
      * 

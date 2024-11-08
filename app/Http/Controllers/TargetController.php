@@ -18,7 +18,11 @@ class TargetController extends Controller
      */
     public function index(TargetFilters $request)
     {
-        return TargetResource::collection(Target::filter($request)->get());
+        return (TargetResource::collection(Target::filter($request)->paginate(20)))
+        ->response()
+        ->header('Accept', 'application/json')->
+          header('Content-Type', 'application/json')->
+          header('Charset', 'utf-8');
     }
 
     /**
@@ -55,7 +59,9 @@ class TargetController extends Controller
      */
     public function destroy(string $id)
     {
-        Target::destroy($id);
+        $target = Target::find($id);
+        $target->update(['active' => '0']); 
+        $target->delete();
         return response()->json(null, 204);
     }
 }

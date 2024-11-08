@@ -31,8 +31,8 @@ class AssignmentController extends Controller
     public function store(Request $request)
     {
         $assignment = Assignment::create($request->all());
-        $request->user()->addPoints(12);
-        return response()->json($assignment, 201);
+        $request->user()->addPoints(2);
+        return response()->json(AssignmentResource::make($assignment), 201);
     }
 
     /**
@@ -53,8 +53,7 @@ class AssignmentController extends Controller
     {
         $assignment = Assignment::find($id);
         $assignment->update($request->all());
-        
-        $request->user()->addPoints(6);
+        $request->user()->addPoints(1);
         return response()->json($assignment, 200);
     }
 

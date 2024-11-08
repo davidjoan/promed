@@ -18,7 +18,11 @@ class InstitutionController extends Controller
      */
     public function index(InstitutionFilters $request)
     {
-        return InstitutionResource::collection(Institution::filter($request)->get());
+        return InstitutionResource::collection(Institution::filter($request)->paginate(10))
+        ->response()
+        ->header('Accept', 'application/json')->
+          header('Content-Type', 'application/json')->
+          header('Charset', 'utf-8');
     }
 
     /**
@@ -27,7 +31,7 @@ class InstitutionController extends Controller
     public function store(Request $request)
     {
         $institution = Institution::create(array_merge($request->all(), 
-        (request('lat'))?['location'  => new Point(lat: request('lat'), lng: request('lng')),]:[]));
+        (request('lat'))?['location' => new Point(lat: request('lat'), lng: request('lng')),]:[]));
         $request->user()->addPoints(10);
         return response()->json($institution, 201);
     }
