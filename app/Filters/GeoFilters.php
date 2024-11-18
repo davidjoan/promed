@@ -23,4 +23,9 @@ class GeoFilters extends QueryFilters
     {
         return $this->builder->where('level', $level);
     }
+
+    public function active($active = '')
+    {
+        return $this->builder->where('active', $active);
+    }
 }

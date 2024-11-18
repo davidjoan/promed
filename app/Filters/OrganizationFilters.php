@@ -23,4 +23,18 @@ class OrganizationFilters extends QueryFilters
     {
         return $this->builder->where('user_id', $id);
     }
+
+    public function brick_id($term = '')
+    {
+        return $this->builder->whereHas('bricks', function ($query) use ($term){
+            $query->where('brick_id',$term);
+        });
+    }
+
+    public function specialty_id($term = '')
+    {
+        return $this->builder->whereHas('specialties', function ($query) use ($term){
+            $query->where('specialty_id',$term);
+        });
+    }
 }

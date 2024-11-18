@@ -87,15 +87,4 @@ class Client extends Model
     {
         return $this->hasMany(Target::class);
     }
-
-    /**
-     * Get the Clien's name.
-     *
-     * @return string
-     */
-    public function getNameAttribute()
-    {
-        return $this->firstname.' '.$this->lastname;
-
-    }
 }

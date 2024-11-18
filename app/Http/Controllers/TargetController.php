@@ -18,7 +18,7 @@ class TargetController extends Controller
      */
     public function index(TargetFilters $request)
     {
-        return (TargetResource::collection(Target::filter($request)->paginate(20)))
+        return (TargetResource::collection(Target::filter($request)->paginate(5)))
         ->response()
         ->header('Accept', 'application/json')->
           header('Content-Type', 'application/json')->

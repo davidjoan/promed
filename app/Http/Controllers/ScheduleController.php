@@ -18,7 +18,11 @@ class ScheduleController extends Controller
      */
     public function index(ScheduleFilters $request)
     {
-        return ScheduleResource::collection(Schedule::filter($request)->get());
+        return (ScheduleResource::collection(Schedule::filter($request)->paginate(10)))
+        ->response()
+        ->header('Accept', 'application/json')->
+          header('Content-Type', 'application/json')->
+          header('Charset', 'utf-8');
     }
 
     /**

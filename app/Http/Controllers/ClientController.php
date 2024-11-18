@@ -24,11 +24,13 @@ class ClientController extends Controller
     {
         $client = Client::create($request->all());
         $request->user()->addPoints(10);
-        $hobbies = json_decode(request('hobbies'));
+
+        $hobbies = $request->input('hobbies');
         if($hobbies){
             $client->hobbies()->attach($hobbies);
         }
-        $specialties = json_decode(request('specialties'));
+        
+        $specialties = $request->input('specialties');
         if($specialties){
             $client->specialties()->attach($specialties);
         }
