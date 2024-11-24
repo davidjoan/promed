@@ -24,8 +24,6 @@ class Client extends JsonResource
         'university' => University::make($this->university),
         'code' => $this->code,
         'name' => $this->name,
-        'firstname' => $this->firstname,
-        'lastname' => $this->lastname,
         'national_identity' => $this->national_identity,
         'email' => $this->email,
         'phone' => $this->phone,

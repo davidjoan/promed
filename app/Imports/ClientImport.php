@@ -28,8 +28,6 @@ class ClientImport implements ToModel
         $faker = \Faker\Factory::create('es_PE');
         $marital_status = array('Soltero','Casado','Viudo','Divorsiado');
         $name      = $faker->name;
-        $firstName = substr($name, 0, strpos($name, ' '));
-        $lastName  = substr($name, strlen($firstName));
 
         $dates    = array($faker->dateTime, $faker->dateTime, $faker->dateTime);
         usort($dates, array('App\Imports\ClientImport','compareByTimeStamp'));
@@ -43,8 +41,7 @@ class ClientImport implements ToModel
             'university_id' => $university->id,
             'code' => $row[0],
             'name' => $name,
-            'firstname' => $firstName,
-            'lastname' => $lastName,
+            'national_identity_type' => 'DNI', 
             'national_identity' => rand(45323478, 85332211),
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,
@@ -54,8 +51,7 @@ class ClientImport implements ToModel
             'date_of_aniversary' => $dates[2],
             'gender' => $row[5],
             'marital_status' => $marital_status[rand(0,3)], 
-            'description' => $faker->text,
-            'photo' => 'client-photos/'.strtolower($tuition->code).'/'.str_pad($row[0], 5, '0', STR_PAD_LEFT).'.jpg'
+            'description' => $faker->text
         ));
 
         return $client;

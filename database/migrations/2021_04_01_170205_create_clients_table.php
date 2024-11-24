@@ -23,9 +23,7 @@ class CreateClientsTable extends Migration
             $table->foreignId('university_id')->nullable()->references('id')->on('specialties')->onDelete('cascade');
             $table->string('code',10)->nullable();
             $table->string('name',100);
-            $table->string('firstname',100)->nullable();
-            $table->string('lastname' ,100)->nullable();
-            $table->string('photo',800)->nullable();
+            $table->enum('national_identity_type', ['DNI', 'Pasaporte'])->nullable();
             $table->string('national_identity',20)->nullable();
             $table->string('email',100)->nullable();
             $table->string('phone','100')->nullable();

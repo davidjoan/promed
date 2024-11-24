@@ -25,7 +25,7 @@ class Client extends Model
      * @var array
      */
     protected $fillable = ['geo_id','client_type_id','tuition_id','nationality_id',
-    'specialty_id','university_id', 'code','name', 'firstname','lastname','photo','national_identity',
+    'specialty_id','university_id', 'code','name','national_identity',
     'email','password','phone','mobile','date_of_birth','date_of_graduation','date_of_aniversary','gender',
     'marital_status', 'description','is_alive','active','created_at','updated_at','deleted_at'];
 	

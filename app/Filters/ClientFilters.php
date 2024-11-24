@@ -18,8 +18,6 @@ class ClientFilters extends QueryFilters
     {
         return $this->builder->where('name','LIKE', '%'.$term.'%')->orWhere('description','LIKE', '%'.$term.'%')
         ->orWhere('code','LIKE', '%'.$term.'%')
-        ->orWhere('firstname','LIKE', '%'.$term.'%')
-        ->orWhere('lastname','LIKE', '%'.$term.'%')
         ->orWhere('email','LIKE', '%'.$term.'%')
         ->orWhere('phone','LIKE', '%'.$term.'%');
     }

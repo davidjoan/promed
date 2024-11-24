@@ -20,7 +20,7 @@ class TargetImport implements ToModel
     {
         $geo     = Geo::getCountry('PE');
         $client = Client::where('code', $row[0])->first();
-        $institution = Institution::where('code', $row[1])->first();
+        $institution = Institution::where('id', $row[1])->first();
         $target = Target::create(array(
             'geo_id' => $geo->id,
             'client_id' => $client->id,

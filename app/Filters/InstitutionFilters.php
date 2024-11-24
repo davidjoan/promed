@@ -23,7 +23,7 @@ class InstitutionFilters extends QueryFilters
 
     public function term($term = '')
     {
-        return $this->builder->where('name','LIKE', '%'.$term.'%')->orWhere('code','LIKE', '%'.$term.'%')->orWhere('ruc','LIKE', '%'.$term.'%')->orWhere('address','LIKE', '%'.$term.'%');
+        return $this->builder->where('name','LIKE', '%'.$term.'%')->orWhere('code','LIKE', '%'.$term.'%')->orWhere('address','LIKE', '%'.$term.'%');
     }
 
     public function institution_type_id($term = '')

@@ -19,8 +19,7 @@ class CreateInstitutionsTable extends Migration
             $table->foreignId('geo_id')->index()->references('id')->on('geo')->onDelete('cascade');
 			$table->foreignId('institution_type_id')->index()->references('id')->on('institution_types')->onDelete('cascade');
             $table->foreignId('brick_id')->nullable()->references('id')->on('bricks')->onDelete('cascade');
-            $table->string('code',10)->nullable();
-            $table->string('ruc' ,11)->nullable();
+            $table->string('code',11)->nullable();
             $table->string('name',500);
             $table->text('description')->nullable();
             $table->text('address')->nullable();

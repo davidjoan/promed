@@ -25,7 +25,7 @@ class Institution extends Model
      * 
      * @var array
      */
-    protected $fillable = ['geo_id','institution_type_id','brick_id', 'code','ruc', 'name', 'description','address','reference','latitude','longitude','position','location','active'];
+    protected $fillable = ['geo_id','institution_type_id','brick_id', 'code', 'name', 'description','address','reference','latitude','longitude','position','location','active'];
 
 	protected $dateFormat = 'Y-m-d H:i:s';
 

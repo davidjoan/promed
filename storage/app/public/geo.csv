@@ -1,4 +1,8 @@
 3932488,Republic of Peru,-10,-75.25,PCLI,PE,00,,,31989256,America/Lima,root
+2932489,Republic of Chile,-10,-75.25,PCLI,CL,00,,,31989256,America/Santiago,3932488
+2932490,Republic of Colombia,-10,-75.25,PCLI,CO,00,,,31989256,America/Bogota,3932488
+2932491,Republic of Ecuador,-10,-75.25,PCLI,EC,00,,,31989256,America/Quito,3932488
+2932492,Republic of Venezuela,-10,-75.25,PCLI,VE,00,,,31989256,America/Caracas,3932488
 3691099,Ucayali,-9.75,-73.5,ADM1,PE,25,,,432195,America/Lima,3932488
 3691146,Tumbes,-3.83333,-80.5,ADM1,PE,24,,,224863,America/Lima,3932488
 3692385,Regi n de San Mart n,-7,-76.83333,ADM1,PE,22,,,813381,America/Lima,3932488

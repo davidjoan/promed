@@ -20,7 +20,6 @@ class Institution extends JsonResource
             'institution_type' => InstitutionType::make($this->institution_type),
             'brick' => Brick::make($this->brick),
             'code' => $this->code,
-            'ruc' => $this->ruc,
             'name' => $this->name,
             'description' => $this->description,
             'address' => $this->address,
