@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Organization extends Model
 {
-  use NodeTrait, AuditableTrait,Filterable, SoftDeletes;
+  use NodeTrait, AuditableTrait, Filterable, SoftDeletes;
   
 	/**
      * The attributes that are mass assignable.

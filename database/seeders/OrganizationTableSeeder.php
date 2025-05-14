@@ -22,16 +22,15 @@ class OrganizationTableSeeder extends Seeder
     {
 		$geo     = Geo::getCountry('PE');
 		
-		$filial         = OrganizationType::where('name','Filial')->first();
-		$unidad_negocio = OrganizationType::where('name','Unidad de Negocio')->first();
-		$division       = OrganizationType::where('name','División')->first();
-		$linea          = OrganizationType::where('name','Linea')->first();
-		$supervisor     = OrganizationType::where('name','Supervisor')->first();
-		$zona           = OrganizationType::where('name','Zona')->first();
-		$user1           = User::where('id',1)->first();
+		$filial         = OrganizationType::where('id',1)->first();
+		$unidad_negocio = OrganizationType::where('id',1)->first();
+		$division       = OrganizationType::where('id',3)->first();
+		$linea          = OrganizationType::where('id',1)->first();
+		$supervisor     = OrganizationType::where('id',2)->first();
+		$zona           = OrganizationType::where('id',3)->first();
+		$user1          = User::where('id',1)->first();
 		$user2          = User::where('id',2)->first();
 		
-
 		$promed_peru = Organization::create(['geo_id' => $geo->id,
 			'user_id' => $user1->id,'organization_type_id' => $filial->id,'name' => 'Promed Community']);
 		

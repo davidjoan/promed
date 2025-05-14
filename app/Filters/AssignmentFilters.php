@@ -51,4 +51,12 @@ class AssignmentFilters extends QueryFilters
     {
         return $this->builder->where('geo_id', $geo_id);
     }
+
+    public function user_id($term = '')
+    {
+        return $this->builder->whereHas('organization', function($q) use ($term) {
+            $q->where('user_id','=', $term);
+        
+        });
+    }
 }
